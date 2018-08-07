@@ -8,10 +8,10 @@ import (
 	"encoding/hex"
 	"testing"
 
-	"github.com/btcsuite/btcd/blockchain"
-	"github.com/btcsuite/btcd/chaincfg/chainhash"
-	"github.com/btcsuite/btcd/wire"
 	"github.com/btcsuite/btcutil"
+	"github.com/cbarraford/btcd/blockchain"
+	"github.com/cbarraford/btcd/chaincfg/chainhash"
+	"github.com/cbarraford/btcd/wire"
 )
 
 // newHashFromStr converts the passed big-endian hex string into a
