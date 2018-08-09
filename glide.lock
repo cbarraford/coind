@@ -1,5 +1,5 @@
 hash: 3541b8a1b92e69bb14487c4572ff318b193e6897e2c18cce86e40493335f5bdf
-updated: 2018-08-09T15:12:54.201635-05:00
+updated: 2018-08-09T15:23:15.868753-05:00
 imports:
 - name: github.com/aead/siphash
   version: e404fcfc888570cadd1610538e2dbc89f66af814
@@ -53,7 +53,7 @@ imports:
   - svc
   - winapi
 - name: github.com/coinsuite/btcutil
-  version: ab6388e0c60ae4834a1f57511e20c17b5f78be4b
+  version: 84a90c4086eccdf11494a3cb84fd19dbab2f09df
   subpackages:
   - bloom
   - gcs
