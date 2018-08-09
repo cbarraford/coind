@@ -3,7 +3,7 @@ cpuminer
 
 [![Build Status](http://img.shields.io/travis/btcsuite/btcd.svg)](https://travis-ci.org/btcsuite/btcd)
 [![ISC License](http://img.shields.io/badge/license-ISC-blue.svg)](http://copyfree.org)
-[![GoDoc](https://img.shields.io/badge/godoc-reference-blue.svg)](http://godoc.org/github.com/coinsuited/coind/mining/cpuminer)
+[![GoDoc](https://img.shields.io/badge/godoc-reference-blue.svg)](http://godoc.org/github.com/coinsuite/coind/mining/cpuminer)
 =======
 
 ## Overview
@@ -16,7 +16,7 @@ now.
 ## Installation and Updating
 
 ```bash
-$ go get -u github.com/coinsuited/coind/mining/cpuminer
+$ go get -u github.com/coinsuite/coind/mining/cpuminer
 ```
 
 ## License

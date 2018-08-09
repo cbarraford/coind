@@ -1,9 +1,9 @@
 btcd
 ====
 
-[![Build Status](https://travis-ci.org/coinsuited/coind.png?branch=master)](https://travis-ci.org/coinsuited/coind)
+[![Build Status](https://travis-ci.org/coinsuite/coind.png?branch=master)](https://travis-ci.org/coinsuite/coind)
 [![ISC License](http://img.shields.io/badge/license-ISC-blue.svg)](http://copyfree.org)
-[![GoDoc](https://img.shields.io/badge/godoc-reference-blue.svg)](http://godoc.org/github.com/coinsuited/coind)
+[![GoDoc](https://img.shields.io/badge/godoc-reference-blue.svg)](http://godoc.org/github.com/coinsuite/coind)
 
 ## Difference from btcd
 coind is a fork of [btcd](https://github.com/btcsuite/btcd), where the intent
@@ -48,7 +48,7 @@ which are both under active development.
 
 #### Windows - MSI Available
 
-https://github.com/coinsuited/coind/releases
+https://github.com/coinsuite/coind/releases
 
 #### Linux/BSD/MacOSX/POSIX - Build from Source
 
@@ -88,7 +88,7 @@ Install a newer MSI
 - Run the following commands to update btcd, all dependencies, and install it:
 
 ```bash
-$ cd $GOPATH/src/github.com/coinsuited/coind
+$ cd $GOPATH/src/github.com/coinsuite/coind
 $ git pull
 $ make update
 ```
@@ -117,12 +117,12 @@ $ ./btcd
 
 ## Issue Tracker
 
-The [integrated github issue tracker](https://github.com/coinsuited/coind/issues)
+The [integrated github issue tracker](https://github.com/coinsuite/coind/issues)
 is used for this project.
 
 ## Documentation
 
-The documentation is a work-in-progress.  It is located in the [docs](https://github.com/coinsuited/coind/tree/master/docs) folder.
+The documentation is a work-in-progress.  It is located in the [docs](https://github.com/coinsuite/coind/tree/master/docs) folder.
 
 ## GPG Verification Key
 
