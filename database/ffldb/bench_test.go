@@ -9,7 +9,7 @@ import (
 	"path/filepath"
 	"testing"
 
-	"github.com/btcsuite/btcutil"
+	"github.com/cbarraford/btcutil"
 	"github.com/cbarraford/coind/chaincfg"
 	"github.com/cbarraford/coind/database"
 )

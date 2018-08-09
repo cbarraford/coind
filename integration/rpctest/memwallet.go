@@ -10,8 +10,8 @@ import (
 	"fmt"
 	"sync"
 
-	"github.com/btcsuite/btcutil"
-	"github.com/btcsuite/btcutil/hdkeychain"
+	"github.com/cbarraford/btcutil"
+	"github.com/cbarraford/btcutil/hdkeychain"
 	"github.com/cbarraford/coind/blockchain"
 	"github.com/cbarraford/coind/btcec"
 	"github.com/cbarraford/coind/chaincfg"

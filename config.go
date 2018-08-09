@@ -20,8 +20,8 @@ import (
 	"strings"
 	"time"
 
-	"github.com/btcsuite/btcutil"
 	"github.com/btcsuite/go-socks/socks"
+	"github.com/cbarraford/btcutil"
 	"github.com/cbarraford/coind/blockchain"
 	"github.com/cbarraford/coind/chaincfg"
 	"github.com/cbarraford/coind/chaincfg/chainhash"

@@ -22,8 +22,8 @@ import (
 
 	"golang.org/x/crypto/ripemd160"
 
-	"github.com/btcsuite/btcutil"
 	"github.com/btcsuite/websocket"
+	"github.com/cbarraford/btcutil"
 	"github.com/cbarraford/coind/blockchain"
 	"github.com/cbarraford/coind/btcjson"
 	"github.com/cbarraford/coind/chaincfg"

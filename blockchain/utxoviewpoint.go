@@ -7,7 +7,7 @@ package blockchain
 import (
 	"fmt"
 
-	"github.com/btcsuite/btcutil"
+	"github.com/cbarraford/btcutil"
 	"github.com/cbarraford/coind/chaincfg/chainhash"
 	"github.com/cbarraford/coind/database"
 	"github.com/cbarraford/coind/txscript"

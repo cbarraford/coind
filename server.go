@@ -22,8 +22,8 @@ import (
 	"sync/atomic"
 	"time"
 
-	"github.com/btcsuite/btcutil"
-	"github.com/btcsuite/btcutil/bloom"
+	"github.com/cbarraford/btcutil"
+	"github.com/cbarraford/btcutil/bloom"
 	"github.com/cbarraford/coind/addrmgr"
 	"github.com/cbarraford/coind/blockchain"
 	"github.com/cbarraford/coind/blockchain/indexers"

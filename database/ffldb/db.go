@@ -14,7 +14,6 @@ import (
 	"sort"
 	"sync"
 
-	"github.com/btcsuite/btcutil"
 	"github.com/btcsuite/goleveldb/leveldb"
 	"github.com/btcsuite/goleveldb/leveldb/comparer"
 	ldberrors "github.com/btcsuite/goleveldb/leveldb/errors"
@@ -22,6 +21,7 @@ import (
 	"github.com/btcsuite/goleveldb/leveldb/iterator"
 	"github.com/btcsuite/goleveldb/leveldb/opt"
 	"github.com/btcsuite/goleveldb/leveldb/util"
+	"github.com/cbarraford/btcutil"
 	"github.com/cbarraford/coind/chaincfg/chainhash"
 	"github.com/cbarraford/coind/database"
 	"github.com/cbarraford/coind/database/internal/treap"

@@ -8,7 +8,7 @@ import (
 	"encoding/hex"
 	"fmt"
 
-	"github.com/btcsuite/btcutil"
+	"github.com/cbarraford/btcutil"
 	"github.com/cbarraford/coind/btcec"
 	"github.com/cbarraford/coind/chaincfg"
 	"github.com/cbarraford/coind/chaincfg/chainhash"

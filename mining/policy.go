@@ -5,7 +5,7 @@
 package mining
 
 import (
-	"github.com/btcsuite/btcutil"
+	"github.com/cbarraford/btcutil"
 	"github.com/cbarraford/coind/blockchain"
 	"github.com/cbarraford/coind/wire"
 )

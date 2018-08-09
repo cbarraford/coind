@@ -7,9 +7,9 @@ package indexers
 import (
 	"errors"
 
-	"github.com/btcsuite/btcutil"
-	"github.com/btcsuite/btcutil/gcs"
-	"github.com/btcsuite/btcutil/gcs/builder"
+	"github.com/cbarraford/btcutil"
+	"github.com/cbarraford/btcutil/gcs"
+	"github.com/cbarraford/btcutil/gcs/builder"
 	"github.com/cbarraford/coind/blockchain"
 	"github.com/cbarraford/coind/chaincfg"
 	"github.com/cbarraford/coind/chaincfg/chainhash"

@@ -11,7 +11,7 @@ import (
 	"sync"
 	"time"
 
-	"github.com/btcsuite/btcutil"
+	"github.com/cbarraford/btcutil"
 	"github.com/cbarraford/coind/blockchain"
 	"github.com/cbarraford/coind/blockchain/indexers"
 	"github.com/cbarraford/coind/chaincfg/chainhash"
