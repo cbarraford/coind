@@ -14,7 +14,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/btcsuite/btcutil"
+	"github.com/cbarraford/btcutil"
 	"github.com/cbarraford/coind/blockchain"
 	"github.com/cbarraford/coind/btcec"
 	"github.com/cbarraford/coind/chaincfg"

@@ -27,8 +27,8 @@ import (
 	"sync/atomic"
 	"time"
 
-	"github.com/btcsuite/btcutil"
 	"github.com/btcsuite/websocket"
+	"github.com/cbarraford/btcutil"
 	"github.com/cbarraford/coind/blockchain"
 	"github.com/cbarraford/coind/blockchain/indexers"
 	"github.com/cbarraford/coind/btcec"

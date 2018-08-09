@@ -8,7 +8,7 @@ import (
 	"encoding/json"
 	"strconv"
 
-	"github.com/btcsuite/btcutil"
+	"github.com/cbarraford/btcutil"
 	"github.com/cbarraford/coind/btcjson"
 	"github.com/cbarraford/coind/chaincfg"
 	"github.com/cbarraford/coind/chaincfg/chainhash"

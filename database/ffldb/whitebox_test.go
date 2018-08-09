@@ -17,9 +17,9 @@ import (
 	"path/filepath"
 	"testing"
 
-	"github.com/btcsuite/btcutil"
 	"github.com/btcsuite/goleveldb/leveldb"
 	ldberrors "github.com/btcsuite/goleveldb/leveldb/errors"
+	"github.com/cbarraford/btcutil"
 	"github.com/cbarraford/coind/chaincfg"
 	"github.com/cbarraford/coind/database"
 	"github.com/cbarraford/coind/wire"

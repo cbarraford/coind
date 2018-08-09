@@ -8,7 +8,7 @@ import (
 	"bytes"
 	"fmt"
 
-	"github.com/btcsuite/btcutil"
+	"github.com/cbarraford/btcutil"
 	"github.com/cbarraford/coind/blockchain"
 	"github.com/cbarraford/coind/chaincfg/chainhash"
 	"github.com/cbarraford/coind/database"
