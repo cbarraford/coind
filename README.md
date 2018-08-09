@@ -1,4 +1,4 @@
-btcd
+coind
 ====
 
 [![Build Status](https://travis-ci.org/coinsuite/coind.png?branch=master)](https://travis-ci.org/coinsuite/coind)
