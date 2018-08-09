@@ -14,6 +14,8 @@ update: install
 get:
 	go get -v ${TARGET}
 	go get -u github.com/Masterminds/glide
+	go get -v github.com/alecthomas/gometalinter
+	gometalinter --install
 
 build:
 	go test ${TARGET}
