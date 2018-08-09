@@ -1157,8 +1157,8 @@ package main
 import (
 	"github.com/btcsuite/btcrpcclient"
 	"github.com/btcsuite/btcutil"
-	"github.com/cbarraford/coind/chaincfg/chainhash"
-	"github.com/cbarraford/coind/wire"
+	"github.com/coinsuited/coind/chaincfg/chainhash"
+	"github.com/coinsuited/coind/wire"
 	"io/ioutil"
 	"log"
 	"path/filepath"
@@ -1249,8 +1249,8 @@ package main
 import (
 	"github.com/btcsuite/btcrpcclient"
 	"github.com/btcsuite/btcutil"
-	"github.com/cbarraford/coind/chaincfg/chainhash"
-	"github.com/cbarraford/coind/wire"
+	"github.com/coinsuited/coind/chaincfg/chainhash"
+	"github.com/coinsuited/coind/wire"
 	"io/ioutil"
 	"log"
 	"path/filepath"

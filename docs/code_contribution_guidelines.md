@@ -239,7 +239,7 @@ Further paragraphs come after blank lines.
 Prefix the summary with the subsystem/package when possible. Many other
 projects make use of the code and this makes it easier for them to tell when
 something they're using has changed. Have a look at [past
-commits](https://github.com/cbarraford/coind/commits/master) for examples of
+commits](https://github.com/coinsuited/coind/commits/master) for examples of
 commit messages.
 
 Here are some of the reasons why wrapping your commit messages to 72 columns is
@@ -321,7 +321,7 @@ keep a clean commit history over a tangled weave of merge commits.  However,
 regardless of the specific merge method used, the code will be integrated with
 the master branch and the pull request will be closed.
 
-Rejoice as you will now be listed as a [contributor](https://github.com/cbarraford/coind/graphs/contributors)!
+Rejoice as you will now be listed as a [contributor](https://github.com/coinsuited/coind/graphs/contributors)!
 
 <a name="Standards" />
 
@@ -351,5 +351,5 @@ Rejoice as you will now be listed as a [contributor](https://github.com/cbarrafo
 ### 6.2. Licensing of Contributions
 
 All contributions must be licensed with the
-[ISC license](https://github.com/cbarraford/coind/blob/master/LICENSE).  This is
+[ISC license](https://github.com/coinsuited/coind/blob/master/LICENSE).  This is
 the same license as all of the code in the btcd suite.
