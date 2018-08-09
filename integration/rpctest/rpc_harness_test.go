@@ -13,11 +13,11 @@ import (
 	"testing"
 	"time"
 
-	"github.com/cbarraford/btcutil"
-	"github.com/cbarraford/coind/chaincfg"
-	"github.com/cbarraford/coind/chaincfg/chainhash"
-	"github.com/cbarraford/coind/txscript"
-	"github.com/cbarraford/coind/wire"
+	"github.com/coinsuite/btcutil"
+	"github.com/coinsuite/coind/chaincfg"
+	"github.com/coinsuite/coind/chaincfg/chainhash"
+	"github.com/coinsuite/coind/txscript"
+	"github.com/coinsuite/coind/wire"
 )
 
 func testSendOutputs(r *Harness, t *testing.T) {

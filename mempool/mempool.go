@@ -12,15 +12,15 @@ import (
 	"sync/atomic"
 	"time"
 
-	"github.com/cbarraford/btcutil"
-	"github.com/cbarraford/coind/blockchain"
-	"github.com/cbarraford/coind/blockchain/indexers"
-	"github.com/cbarraford/coind/btcjson"
-	"github.com/cbarraford/coind/chaincfg"
-	"github.com/cbarraford/coind/chaincfg/chainhash"
-	"github.com/cbarraford/coind/mining"
-	"github.com/cbarraford/coind/txscript"
-	"github.com/cbarraford/coind/wire"
+	"github.com/coinsuite/btcutil"
+	"github.com/coinsuite/coind/blockchain"
+	"github.com/coinsuite/coind/blockchain/indexers"
+	"github.com/coinsuite/coind/btcjson"
+	"github.com/coinsuite/coind/chaincfg"
+	"github.com/coinsuite/coind/chaincfg/chainhash"
+	"github.com/coinsuite/coind/mining"
+	"github.com/coinsuite/coind/txscript"
+	"github.com/coinsuite/coind/wire"
 )
 
 const (

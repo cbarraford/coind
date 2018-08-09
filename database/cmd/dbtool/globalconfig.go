@@ -10,11 +10,11 @@ import (
 	"os"
 	"path/filepath"
 
-	"github.com/cbarraford/btcutil"
-	"github.com/cbarraford/coind/chaincfg"
-	"github.com/cbarraford/coind/database"
-	_ "github.com/cbarraford/coind/database/ffldb"
-	"github.com/cbarraford/coind/wire"
+	"github.com/coinsuite/btcutil"
+	"github.com/coinsuite/coind/chaincfg"
+	"github.com/coinsuite/coind/database"
+	_ "github.com/coinsuite/coind/database/ffldb"
+	"github.com/coinsuite/coind/wire"
 )
 
 var (

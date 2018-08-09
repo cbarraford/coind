@@ -11,12 +11,12 @@ import (
 	"sync"
 	"time"
 
-	"github.com/cbarraford/btcutil"
-	"github.com/cbarraford/coind/blockchain"
-	"github.com/cbarraford/coind/blockchain/indexers"
-	"github.com/cbarraford/coind/chaincfg/chainhash"
-	"github.com/cbarraford/coind/database"
-	"github.com/cbarraford/coind/wire"
+	"github.com/coinsuite/btcutil"
+	"github.com/coinsuite/coind/blockchain"
+	"github.com/coinsuite/coind/blockchain/indexers"
+	"github.com/coinsuite/coind/chaincfg/chainhash"
+	"github.com/coinsuite/coind/database"
+	"github.com/coinsuite/coind/wire"
 )
 
 var zeroHash = chainhash.Hash{}

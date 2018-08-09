@@ -12,7 +12,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/cbarraford/coind/chaincfg/chainhash"
+	"github.com/coinsuite/coind/chaincfg/chainhash"
 	"github.com/davecgh/go-spew/spew"
 )
 

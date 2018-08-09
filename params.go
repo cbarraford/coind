@@ -5,8 +5,8 @@
 package main
 
 import (
-	"github.com/cbarraford/coind/chaincfg"
-	"github.com/cbarraford/coind/wire"
+	"github.com/coinsuite/coind/chaincfg"
+	"github.com/coinsuite/coind/wire"
 )
 
 // activeNetParams is a pointer to the parameters specific to the

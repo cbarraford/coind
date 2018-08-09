@@ -12,10 +12,10 @@ import (
 	"runtime"
 	"testing"
 
-	"github.com/cbarraford/btcutil"
-	"github.com/cbarraford/coind/chaincfg"
-	"github.com/cbarraford/coind/database"
-	"github.com/cbarraford/coind/database/ffldb"
+	"github.com/coinsuite/btcutil"
+	"github.com/coinsuite/coind/chaincfg"
+	"github.com/coinsuite/coind/database"
+	"github.com/coinsuite/coind/database/ffldb"
 )
 
 // dbType is the database type name for this driver.

@@ -10,7 +10,7 @@ import (
 	"reflect"
 	"testing"
 
-	"github.com/cbarraford/coind/wire"
+	"github.com/coinsuite/coind/wire"
 )
 
 // testNoncePrng provides a deterministic prng for the nonce in generated fake

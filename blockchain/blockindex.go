@@ -10,10 +10,10 @@ import (
 	"sync"
 	"time"
 
-	"github.com/cbarraford/coind/chaincfg"
-	"github.com/cbarraford/coind/chaincfg/chainhash"
-	"github.com/cbarraford/coind/database"
-	"github.com/cbarraford/coind/wire"
+	"github.com/coinsuite/coind/chaincfg"
+	"github.com/coinsuite/coind/chaincfg/chainhash"
+	"github.com/coinsuite/coind/database"
+	"github.com/coinsuite/coind/wire"
 )
 
 // blockStatus is a bit field representing the validation state of the block.

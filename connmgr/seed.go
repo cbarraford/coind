@@ -11,8 +11,8 @@ import (
 	"strconv"
 	"time"
 
-	"github.com/cbarraford/coind/chaincfg"
-	"github.com/cbarraford/coind/wire"
+	"github.com/coinsuite/coind/chaincfg"
+	"github.com/coinsuite/coind/wire"
 )
 
 const (

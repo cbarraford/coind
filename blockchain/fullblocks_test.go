@@ -12,15 +12,15 @@ import (
 	"path/filepath"
 	"testing"
 
-	"github.com/cbarraford/btcutil"
-	"github.com/cbarraford/coind/blockchain"
-	"github.com/cbarraford/coind/blockchain/fullblocktests"
-	"github.com/cbarraford/coind/chaincfg"
-	"github.com/cbarraford/coind/chaincfg/chainhash"
-	"github.com/cbarraford/coind/database"
-	_ "github.com/cbarraford/coind/database/ffldb"
-	"github.com/cbarraford/coind/txscript"
-	"github.com/cbarraford/coind/wire"
+	"github.com/coinsuite/btcutil"
+	"github.com/coinsuite/coind/blockchain"
+	"github.com/coinsuite/coind/blockchain/fullblocktests"
+	"github.com/coinsuite/coind/chaincfg"
+	"github.com/coinsuite/coind/chaincfg/chainhash"
+	"github.com/coinsuite/coind/database"
+	_ "github.com/coinsuite/coind/database/ffldb"
+	"github.com/coinsuite/coind/txscript"
+	"github.com/coinsuite/coind/wire"
 )
 
 const (

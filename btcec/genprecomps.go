@@ -17,7 +17,7 @@ import (
 	"log"
 	"os"
 
-	"github.com/cbarraford/coind/btcec"
+	"github.com/coinsuite/coind/btcec"
 )
 
 func main() {

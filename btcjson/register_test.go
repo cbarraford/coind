@@ -9,7 +9,7 @@ import (
 	"sort"
 	"testing"
 
-	"github.com/cbarraford/coind/btcjson"
+	"github.com/coinsuite/coind/btcjson"
 )
 
 // TestUsageFlagStringer tests the stringized output for the UsageFlag type.

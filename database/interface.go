@@ -8,8 +8,8 @@
 package database
 
 import (
-	"github.com/cbarraford/btcutil"
-	"github.com/cbarraford/coind/chaincfg/chainhash"
+	"github.com/coinsuite/btcutil"
+	"github.com/coinsuite/coind/chaincfg/chainhash"
 )
 
 // Cursor represents a cursor over key/value pairs and nested buckets of a

@@ -8,7 +8,7 @@ import (
 	"fmt"
 	"net"
 
-	"github.com/cbarraford/coind/wire"
+	"github.com/coinsuite/coind/wire"
 )
 
 var (
