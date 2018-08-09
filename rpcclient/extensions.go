@@ -13,9 +13,9 @@ import (
 	"fmt"
 
 	"github.com/btcsuite/btcutil"
-	"github.com/cbarraford/btcd/btcjson"
-	"github.com/cbarraford/btcd/chaincfg/chainhash"
-	"github.com/cbarraford/btcd/wire"
+	"github.com/cbarraford/coind/btcjson"
+	"github.com/cbarraford/coind/chaincfg/chainhash"
+	"github.com/cbarraford/coind/wire"
 )
 
 // FutureDebugLevelResult is a future promise to deliver the result of a

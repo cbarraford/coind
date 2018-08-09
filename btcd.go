@@ -15,9 +15,9 @@ import (
 	"runtime/debug"
 	"runtime/pprof"
 
-	"github.com/cbarraford/btcd/blockchain/indexers"
-	"github.com/cbarraford/btcd/database"
-	"github.com/cbarraford/btcd/limits"
+	"github.com/cbarraford/coind/blockchain/indexers"
+	"github.com/cbarraford/coind/database"
+	"github.com/cbarraford/coind/limits"
 )
 
 const (

@@ -1,4 +1,4 @@
-package: github.com/cbarraford/btcd
+package: github.com/cbarraford/coind
 import:
 - package: github.com/btcsuite/btclog
 - package: github.com/btcsuite/btcutil

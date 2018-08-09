@@ -10,8 +10,8 @@ import (
 	"testing"
 
 	"github.com/btcsuite/btcutil"
-	"github.com/cbarraford/btcd/chaincfg"
-	"github.com/cbarraford/btcd/database"
+	"github.com/cbarraford/coind/chaincfg"
+	"github.com/cbarraford/coind/database"
 )
 
 // BenchmarkBlockHeader benchmarks how long it takes to load the mainnet genesis

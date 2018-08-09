@@ -8,8 +8,8 @@ import (
 	"crypto/rand"
 	"testing"
 
-	"github.com/cbarraford/btcd/btcec"
-	"github.com/cbarraford/btcd/chaincfg/chainhash"
+	"github.com/cbarraford/coind/btcec"
+	"github.com/cbarraford/coind/chaincfg/chainhash"
 )
 
 // genRandomSig returns a random message, a signature of the message under the

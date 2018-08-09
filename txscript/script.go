@@ -10,8 +10,8 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/cbarraford/btcd/chaincfg/chainhash"
-	"github.com/cbarraford/btcd/wire"
+	"github.com/cbarraford/coind/chaincfg/chainhash"
+	"github.com/cbarraford/coind/wire"
 )
 
 // Bip16Activation is the timestamp where BIP0016 is valid to use in the

@@ -8,12 +8,12 @@ import (
 	"sync/atomic"
 
 	"github.com/btcsuite/btcutil"
-	"github.com/cbarraford/btcd/blockchain"
-	"github.com/cbarraford/btcd/chaincfg/chainhash"
-	"github.com/cbarraford/btcd/mempool"
-	"github.com/cbarraford/btcd/netsync"
-	"github.com/cbarraford/btcd/peer"
-	"github.com/cbarraford/btcd/wire"
+	"github.com/cbarraford/coind/blockchain"
+	"github.com/cbarraford/coind/chaincfg/chainhash"
+	"github.com/cbarraford/coind/mempool"
+	"github.com/cbarraford/coind/netsync"
+	"github.com/cbarraford/coind/peer"
+	"github.com/cbarraford/coind/wire"
 )
 
 // rpcPeer provides a peer for use with the RPC server and implements the

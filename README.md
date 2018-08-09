@@ -3,7 +3,7 @@ btcd
 
 [![Build Status](https://travis-ci.org/cbarraford/coind.png?branch=master)](https://travis-ci.org/cbarraford/coind)
 [![ISC License](http://img.shields.io/badge/license-ISC-blue.svg)](http://copyfree.org)
-[![GoDoc](https://img.shields.io/badge/godoc-reference-blue.svg)](http://godoc.org/github.com/cbarraford/btcd)
+[![GoDoc](https://img.shields.io/badge/godoc-reference-blue.svg)](http://godoc.org/github.com/cbarraford/coind)
 
 ## Difference from btcd
 coind is a fork of [btcd](https://github.com/btcsuite/btcd), where the intent
@@ -48,7 +48,7 @@ which are both under active development.
 
 #### Windows - MSI Available
 
-https://github.com/cbarraford/btcd/releases
+https://github.com/cbarraford/coind/releases
 
 #### Linux/BSD/MacOSX/POSIX - Build from Source
 
@@ -71,8 +71,8 @@ recommended that `GOPATH` is set to a directory in your home directory such as
 
 ```bash
 $ go get -u github.com/Masterminds/glide
-$ git clone https://github.com/cbarraford/btcd $GOPATH/src/github.com/cbarraford/btcd
-$ cd $GOPATH/src/github.com/cbarraford/btcd
+$ git clone https://github.com/cbarraford/coind $GOPATH/src/github.com/cbarraford/coind
+$ cd $GOPATH/src/github.com/cbarraford/coind
 $ glide install
 $ go install . ./cmd/...
 ```
@@ -92,7 +92,7 @@ Install a newer MSI
 - Run the following commands to update btcd, all dependencies, and install it:
 
 ```bash
-$ cd $GOPATH/src/github.com/cbarraford/btcd
+$ cd $GOPATH/src/github.com/cbarraford/coind
 $ git pull && glide install
 $ go install . ./cmd/...
 ```
@@ -121,12 +121,12 @@ $ ./btcd
 
 ## Issue Tracker
 
-The [integrated github issue tracker](https://github.com/cbarraford/btcd/issues)
+The [integrated github issue tracker](https://github.com/cbarraford/coind/issues)
 is used for this project.
 
 ## Documentation
 
-The documentation is a work-in-progress.  It is located in the [docs](https://github.com/cbarraford/btcd/tree/master/docs) folder.
+The documentation is a work-in-progress.  It is located in the [docs](https://github.com/cbarraford/coind/tree/master/docs) folder.
 
 ## GPG Verification Key
 
