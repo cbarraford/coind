@@ -1,9 +1,16 @@
 btcd
 ====
 
-[![Build Status](https://travis-ci.org/btcsuite/btcd.png?branch=master)](https://travis-ci.org/btcsuite/btcd)
+[![Build Status](https://travis-ci.org/cbarraford/coind.png?branch=master)](https://travis-ci.org/cbarraford/coind)
 [![ISC License](http://img.shields.io/badge/license-ISC-blue.svg)](http://copyfree.org)
 [![GoDoc](https://img.shields.io/badge/godoc-reference-blue.svg)](http://godoc.org/github.com/cbarraford/btcd)
+
+## Difference from btcd
+coind is a fork of [btcd](https://github.com/btcsuite/btcd), where the intent
+is to have a more modular and reusable codebase for alternative bitcoin-based
+coins such as Bitcoin Cash, Litecoin, and Dogecoin.
+
+# Description
 
 btcd is an alternative full node bitcoin implementation written in Go (golang).
 
