@@ -70,11 +70,7 @@ recommended that `GOPATH` is set to a directory in your home directory such as
 - Run the following commands to obtain btcd, all dependencies, and install it:
 
 ```bash
-$ go get -u github.com/Masterminds/glide
-$ git clone https://github.com/cbarraford/coind $GOPATH/src/github.com/cbarraford/coind
-$ cd $GOPATH/src/github.com/cbarraford/coind
-$ glide install
-$ go install . ./cmd/...
+$ make install
 ```
 
 - btcd (and utilities) will now be installed in ```$GOPATH/bin```.  If you did
@@ -93,8 +89,8 @@ Install a newer MSI
 
 ```bash
 $ cd $GOPATH/src/github.com/cbarraford/coind
-$ git pull && glide install
-$ go install . ./cmd/...
+$ git pull
+$ make update
 ```
 
 ## Getting Started
