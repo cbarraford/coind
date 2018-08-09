@@ -2,6 +2,7 @@ coind
 ====
 
 [![Build Status](https://travis-ci.org/coinsuite/coind.png?branch=master)](https://travis-ci.org/coinsuite/coind)
+[![Coverage Status](http://img.shields.io/coveralls/coinsuite/coind.svg)](https://coveralls.io/r/coinsuite/coind?branch=master)
 [![ISC License](http://img.shields.io/badge/license-ISC-blue.svg)](http://copyfree.org)
 [![GoDoc](https://img.shields.io/badge/godoc-reference-blue.svg)](http://godoc.org/github.com/coinsuite/coind)
 
