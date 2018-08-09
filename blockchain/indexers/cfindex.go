@@ -7,14 +7,14 @@ package indexers
 import (
 	"errors"
 
-	"github.com/cbarraford/btcutil"
-	"github.com/cbarraford/btcutil/gcs"
-	"github.com/cbarraford/btcutil/gcs/builder"
-	"github.com/cbarraford/coind/blockchain"
-	"github.com/cbarraford/coind/chaincfg"
-	"github.com/cbarraford/coind/chaincfg/chainhash"
-	"github.com/cbarraford/coind/database"
-	"github.com/cbarraford/coind/wire"
+	"github.com/coinsuite/btcutil"
+	"github.com/coinsuite/btcutil/gcs"
+	"github.com/coinsuite/btcutil/gcs/builder"
+	"github.com/coinsuite/coind/blockchain"
+	"github.com/coinsuite/coind/chaincfg"
+	"github.com/coinsuite/coind/chaincfg/chainhash"
+	"github.com/coinsuite/coind/database"
+	"github.com/coinsuite/coind/wire"
 )
 
 const (

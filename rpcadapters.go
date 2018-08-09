@@ -7,13 +7,13 @@ package main
 import (
 	"sync/atomic"
 
-	"github.com/cbarraford/btcutil"
-	"github.com/cbarraford/coind/blockchain"
-	"github.com/cbarraford/coind/chaincfg/chainhash"
-	"github.com/cbarraford/coind/mempool"
-	"github.com/cbarraford/coind/netsync"
-	"github.com/cbarraford/coind/peer"
-	"github.com/cbarraford/coind/wire"
+	"github.com/coinsuite/btcutil"
+	"github.com/coinsuite/coind/blockchain"
+	"github.com/coinsuite/coind/chaincfg/chainhash"
+	"github.com/coinsuite/coind/mempool"
+	"github.com/coinsuite/coind/netsync"
+	"github.com/coinsuite/coind/peer"
+	"github.com/coinsuite/coind/wire"
 )
 
 // rpcPeer provides a peer for use with the RPC server and implements the

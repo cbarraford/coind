@@ -5,8 +5,8 @@
 package blockchain
 
 import (
-	"github.com/cbarraford/coind/btcec"
-	"github.com/cbarraford/coind/txscript"
+	"github.com/coinsuite/coind/btcec"
+	"github.com/coinsuite/coind/txscript"
 )
 
 // -----------------------------------------------------------------------------

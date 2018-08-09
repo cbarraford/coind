@@ -10,8 +10,8 @@ import (
 	"strconv"
 	"time"
 
-	"github.com/cbarraford/coind/chaincfg/chainhash"
-	"github.com/cbarraford/coind/database"
+	"github.com/coinsuite/coind/chaincfg/chainhash"
+	"github.com/coinsuite/coind/database"
 )
 
 // blockRegionCmd defines the configuration options for the fetchblockregion

@@ -8,7 +8,7 @@ import (
 	"fmt"
 	"hash/crc32"
 
-	"github.com/cbarraford/coind/database"
+	"github.com/coinsuite/coind/database"
 )
 
 // The serialized write cursor location format is:

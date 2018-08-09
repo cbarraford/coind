@@ -19,10 +19,10 @@ import (
 
 	"github.com/btcsuite/goleveldb/leveldb"
 	ldberrors "github.com/btcsuite/goleveldb/leveldb/errors"
-	"github.com/cbarraford/btcutil"
-	"github.com/cbarraford/coind/chaincfg"
-	"github.com/cbarraford/coind/database"
-	"github.com/cbarraford/coind/wire"
+	"github.com/coinsuite/btcutil"
+	"github.com/coinsuite/coind/chaincfg"
+	"github.com/coinsuite/coind/database"
+	"github.com/coinsuite/coind/wire"
 )
 
 var (

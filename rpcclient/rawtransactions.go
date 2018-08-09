@@ -9,10 +9,10 @@ import (
 	"encoding/hex"
 	"encoding/json"
 
-	"github.com/cbarraford/btcutil"
-	"github.com/cbarraford/coind/btcjson"
-	"github.com/cbarraford/coind/chaincfg/chainhash"
-	"github.com/cbarraford/coind/wire"
+	"github.com/coinsuite/btcutil"
+	"github.com/coinsuite/coind/btcjson"
+	"github.com/coinsuite/coind/chaincfg/chainhash"
+	"github.com/coinsuite/coind/wire"
 )
 
 // SigHashType enumerates the available signature hashing types that the

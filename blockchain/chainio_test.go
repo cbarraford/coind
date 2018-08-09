@@ -11,8 +11,8 @@ import (
 	"reflect"
 	"testing"
 
-	"github.com/cbarraford/coind/database"
-	"github.com/cbarraford/coind/wire"
+	"github.com/coinsuite/coind/database"
+	"github.com/coinsuite/coind/wire"
 )
 
 // TestErrNotInMainChain ensures the functions related to errNotInMainChain work

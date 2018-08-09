@@ -6,7 +6,7 @@ import (
 	"strings"
 	"testing"
 
-	. "github.com/cbarraford/coind/chaincfg"
+	. "github.com/coinsuite/coind/chaincfg"
 )
 
 // Define some of the required parameters for a user-registered

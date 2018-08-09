@@ -8,10 +8,10 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/cbarraford/btcutil"
-	"github.com/cbarraford/coind/chaincfg"
-	"github.com/cbarraford/coind/chaincfg/chainhash"
-	"github.com/cbarraford/coind/txscript"
+	"github.com/coinsuite/btcutil"
+	"github.com/coinsuite/coind/chaincfg"
+	"github.com/coinsuite/coind/chaincfg/chainhash"
+	"github.com/coinsuite/coind/txscript"
 )
 
 // CheckpointConfirmations is the number of blocks before the end of the current

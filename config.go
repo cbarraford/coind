@@ -21,14 +21,14 @@ import (
 	"time"
 
 	"github.com/btcsuite/go-socks/socks"
-	"github.com/cbarraford/btcutil"
-	"github.com/cbarraford/coind/blockchain"
-	"github.com/cbarraford/coind/chaincfg"
-	"github.com/cbarraford/coind/chaincfg/chainhash"
-	"github.com/cbarraford/coind/connmgr"
-	"github.com/cbarraford/coind/database"
-	_ "github.com/cbarraford/coind/database/ffldb"
-	"github.com/cbarraford/coind/mempool"
+	"github.com/coinsuite/btcutil"
+	"github.com/coinsuite/coind/blockchain"
+	"github.com/coinsuite/coind/chaincfg"
+	"github.com/coinsuite/coind/chaincfg/chainhash"
+	"github.com/coinsuite/coind/connmgr"
+	"github.com/coinsuite/coind/database"
+	_ "github.com/coinsuite/coind/database/ffldb"
+	"github.com/coinsuite/coind/mempool"
 	flags "github.com/jessevdk/go-flags"
 )
 

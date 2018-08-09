@@ -13,10 +13,10 @@ import (
 	"testing"
 	"time"
 
-	"github.com/cbarraford/coind/blockchain"
-	"github.com/cbarraford/coind/chaincfg"
-	"github.com/cbarraford/coind/chaincfg/chainhash"
-	"github.com/cbarraford/coind/integration/rpctest"
+	"github.com/coinsuite/coind/blockchain"
+	"github.com/coinsuite/coind/chaincfg"
+	"github.com/coinsuite/coind/chaincfg/chainhash"
+	"github.com/coinsuite/coind/integration/rpctest"
 )
 
 const (

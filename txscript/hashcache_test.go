@@ -9,7 +9,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/cbarraford/coind/wire"
+	"github.com/coinsuite/coind/wire"
 	"github.com/davecgh/go-spew/spew"
 )
 

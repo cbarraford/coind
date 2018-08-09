@@ -12,13 +12,13 @@ import (
 	"testing"
 	"time"
 
-	"github.com/cbarraford/btcutil"
-	"github.com/cbarraford/coind/blockchain"
-	"github.com/cbarraford/coind/btcec"
-	"github.com/cbarraford/coind/chaincfg"
-	"github.com/cbarraford/coind/chaincfg/chainhash"
-	"github.com/cbarraford/coind/txscript"
-	"github.com/cbarraford/coind/wire"
+	"github.com/coinsuite/btcutil"
+	"github.com/coinsuite/coind/blockchain"
+	"github.com/coinsuite/coind/btcec"
+	"github.com/coinsuite/coind/chaincfg"
+	"github.com/coinsuite/coind/chaincfg/chainhash"
+	"github.com/coinsuite/coind/txscript"
+	"github.com/coinsuite/coind/wire"
 )
 
 // fakeChain is used by the pool harness to provide generated test utxos and
