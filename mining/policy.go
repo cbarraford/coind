@@ -6,8 +6,8 @@ package mining
 
 import (
 	"github.com/btcsuite/btcutil"
-	"github.com/cbarraford/btcd/blockchain"
-	"github.com/cbarraford/btcd/wire"
+	"github.com/cbarraford/coind/blockchain"
+	"github.com/cbarraford/coind/wire"
 )
 
 const (

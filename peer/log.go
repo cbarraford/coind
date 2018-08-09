@@ -10,9 +10,9 @@ import (
 	"time"
 
 	"github.com/btcsuite/btclog"
-	"github.com/cbarraford/btcd/chaincfg/chainhash"
-	"github.com/cbarraford/btcd/txscript"
-	"github.com/cbarraford/btcd/wire"
+	"github.com/cbarraford/coind/chaincfg/chainhash"
+	"github.com/cbarraford/coind/txscript"
+	"github.com/cbarraford/coind/wire"
 )
 
 const (

@@ -11,8 +11,8 @@ import (
 	"time"
 
 	"github.com/btcsuite/btcutil"
-	"github.com/cbarraford/btcd/rpcclient"
-	"github.com/cbarraford/btcd/wire"
+	"github.com/cbarraford/coind/rpcclient"
+	"github.com/cbarraford/coind/wire"
 )
 
 func main() {

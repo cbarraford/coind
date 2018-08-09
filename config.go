@@ -22,13 +22,13 @@ import (
 
 	"github.com/btcsuite/btcutil"
 	"github.com/btcsuite/go-socks/socks"
-	"github.com/cbarraford/btcd/blockchain"
-	"github.com/cbarraford/btcd/chaincfg"
-	"github.com/cbarraford/btcd/chaincfg/chainhash"
-	"github.com/cbarraford/btcd/connmgr"
-	"github.com/cbarraford/btcd/database"
-	_ "github.com/cbarraford/btcd/database/ffldb"
-	"github.com/cbarraford/btcd/mempool"
+	"github.com/cbarraford/coind/blockchain"
+	"github.com/cbarraford/coind/chaincfg"
+	"github.com/cbarraford/coind/chaincfg/chainhash"
+	"github.com/cbarraford/coind/connmgr"
+	"github.com/cbarraford/coind/database"
+	_ "github.com/cbarraford/coind/database/ffldb"
+	"github.com/cbarraford/coind/mempool"
 	flags "github.com/jessevdk/go-flags"
 )
 

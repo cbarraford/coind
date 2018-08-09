@@ -13,14 +13,14 @@ import (
 	"time"
 
 	"github.com/btcsuite/btcutil"
-	"github.com/cbarraford/btcd/blockchain"
-	"github.com/cbarraford/btcd/blockchain/indexers"
-	"github.com/cbarraford/btcd/btcjson"
-	"github.com/cbarraford/btcd/chaincfg"
-	"github.com/cbarraford/btcd/chaincfg/chainhash"
-	"github.com/cbarraford/btcd/mining"
-	"github.com/cbarraford/btcd/txscript"
-	"github.com/cbarraford/btcd/wire"
+	"github.com/cbarraford/coind/blockchain"
+	"github.com/cbarraford/coind/blockchain/indexers"
+	"github.com/cbarraford/coind/btcjson"
+	"github.com/cbarraford/coind/chaincfg"
+	"github.com/cbarraford/coind/chaincfg/chainhash"
+	"github.com/cbarraford/coind/mining"
+	"github.com/cbarraford/coind/txscript"
+	"github.com/cbarraford/coind/wire"
 )
 
 const (

@@ -22,10 +22,10 @@ import (
 	"github.com/btcsuite/goleveldb/leveldb/iterator"
 	"github.com/btcsuite/goleveldb/leveldb/opt"
 	"github.com/btcsuite/goleveldb/leveldb/util"
-	"github.com/cbarraford/btcd/chaincfg/chainhash"
-	"github.com/cbarraford/btcd/database"
-	"github.com/cbarraford/btcd/database/internal/treap"
-	"github.com/cbarraford/btcd/wire"
+	"github.com/cbarraford/coind/chaincfg/chainhash"
+	"github.com/cbarraford/coind/database"
+	"github.com/cbarraford/coind/database/internal/treap"
+	"github.com/cbarraford/coind/wire"
 )
 
 const (

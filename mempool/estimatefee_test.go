@@ -10,9 +10,9 @@ import (
 	"testing"
 
 	"github.com/btcsuite/btcutil"
-	"github.com/cbarraford/btcd/chaincfg/chainhash"
-	"github.com/cbarraford/btcd/mining"
-	"github.com/cbarraford/btcd/wire"
+	"github.com/cbarraford/coind/chaincfg/chainhash"
+	"github.com/cbarraford/coind/mining"
+	"github.com/cbarraford/coind/wire"
 )
 
 // newTestFeeEstimator creates a feeEstimator with some different parameters

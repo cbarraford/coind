@@ -10,7 +10,7 @@ import (
 	"fmt"
 	"sync"
 
-	"github.com/cbarraford/btcd/wire"
+	"github.com/cbarraford/coind/wire"
 )
 
 // mruInventoryMap provides a concurrency safe map that is limited to a maximum

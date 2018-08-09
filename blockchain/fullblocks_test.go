@@ -13,14 +13,14 @@ import (
 	"testing"
 
 	"github.com/btcsuite/btcutil"
-	"github.com/cbarraford/btcd/blockchain"
-	"github.com/cbarraford/btcd/blockchain/fullblocktests"
-	"github.com/cbarraford/btcd/chaincfg"
-	"github.com/cbarraford/btcd/chaincfg/chainhash"
-	"github.com/cbarraford/btcd/database"
-	_ "github.com/cbarraford/btcd/database/ffldb"
-	"github.com/cbarraford/btcd/txscript"
-	"github.com/cbarraford/btcd/wire"
+	"github.com/cbarraford/coind/blockchain"
+	"github.com/cbarraford/coind/blockchain/fullblocktests"
+	"github.com/cbarraford/coind/chaincfg"
+	"github.com/cbarraford/coind/chaincfg/chainhash"
+	"github.com/cbarraford/coind/database"
+	_ "github.com/cbarraford/coind/database/ffldb"
+	"github.com/cbarraford/coind/txscript"
+	"github.com/cbarraford/coind/wire"
 )
 
 const (

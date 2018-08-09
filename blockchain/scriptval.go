@@ -11,8 +11,8 @@ import (
 	"time"
 
 	"github.com/btcsuite/btcutil"
-	"github.com/cbarraford/btcd/txscript"
-	"github.com/cbarraford/btcd/wire"
+	"github.com/cbarraford/coind/txscript"
+	"github.com/cbarraford/coind/wire"
 )
 
 // txValidateItem holds a transaction along with which input to validate.

@@ -12,7 +12,7 @@ import (
 	"reflect"
 	"testing"
 
-	"github.com/cbarraford/btcd/btcjson"
+	"github.com/cbarraford/coind/btcjson"
 )
 
 // TestChainSvrWsNtfns tests all of the chain server websocket-specific
