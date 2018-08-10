@@ -24,15 +24,12 @@ const (
 	defaultSymbol   = "btc"
 )
 
+var activeNetParams *chaincfg.Params
+
 var (
-	btcdHomeDir     = btcutil.AppDataDir("btcd", false)
-	defaultDataDir  = filepath.Join(btcdHomeDir, "data")
-	knownDbTypes    = database.SupportedDrivers()
-	mainNet         = chaincfg.GetMainNet()
-	testNet         = chaincfg.GetTestNet()
-	regressionNet   = chaincfg.GetRegressionNet()
-	simNet          = chaincfg.GetSimNet()
-	activeNetParams = &mainNet
+	btcdHomeDir    = btcutil.AppDataDir("btcd", false)
+	defaultDataDir = filepath.Join(btcdHomeDir, "data")
+	knownDbTypes   = database.SupportedDrivers()
 )
 
 // config defines the configuration options for findcheckpoint.
@@ -112,7 +109,9 @@ func loadConfig() (*config, []string, error) {
 	}
 
 	chaincfg.SetSymbol(cfg.Symbol)
+	mainNet := chaincfg.GetMainNet()
 
+	activeNetParams = &mainNet
 	// Multiple networks can't be selected simultaneously.
 	funcName := "loadConfig"
 	numNets := 0
@@ -120,14 +119,17 @@ func loadConfig() (*config, []string, error) {
 	// while we're at it
 	if cfg.TestNet3 {
 		numNets++
+		testNet := chaincfg.GetTestNet()
 		activeNetParams = &testNet
 	}
 	if cfg.RegressionTest {
 		numNets++
+		regressionNet := chaincfg.GetRegressionNet()
 		activeNetParams = &regressionNet
 	}
 	if cfg.SimNet {
 		numNets++
+		simNet := chaincfg.GetSimNet()
 		activeNetParams = &simNet
 	}
 	if numNets > 1 {
