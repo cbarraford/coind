@@ -174,6 +174,7 @@ func loadConfig() (*config, []string, error) {
 	// Default config.
 	cfg := config{
 		ConfigFile: defaultConfigFile,
+		Symbol:     defaultSymbol,
 		RPCServer:  defaultRPCServer,
 		RPCCert:    defaultRPCCertFile,
 	}
