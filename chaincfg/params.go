@@ -21,7 +21,7 @@ var ParamSets = map[string]ParamsSet{
 	"btc": BTCSet,
 }
 
-// Set coin symbol
+// Set coin symbol and register nets
 func SetSymbol(sym string) {
 	if _, ok := ParamSets[sym]; ok {
 		symbol = sym
