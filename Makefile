@@ -14,11 +14,11 @@ update: install
 get:
 	go get -v ${TARGET}
 	go get -u github.com/Masterminds/glide
-	go get -v github.com/alecthomas/gometalinter
+	go get -u gopkg.in/alecthomas/gometalinter.v2
 	gometalinter --install
 
 build:
-	go test ${TARGET}
+	go build ${TARGET}
 
 test:
 	go test ${TARGET}
