@@ -26,8 +26,9 @@ type params struct {
 // separate wallet process listens on the well-known port and forwards requests
 // it does not handle on to btcd.  This approach allows the wallet process
 // to emulate the full reference implementation RPC API.
+var mainNet = chaincfg.GetMainNet()
 var mainNetParams = params{
-	Params:  &chaincfg.MainNetParams,
+	Params:  &mainNet,
 	rpcPort: "8334",
 }
 
@@ -35,23 +36,26 @@ var mainNetParams = params{
 // network (wire.TestNet).  NOTE: The RPC port is intentionally different
 // than the reference implementation - see the mainNetParams comment for
 // details.
+var regressionNet = chaincfg.GetRegressionNet()
 var regressionNetParams = params{
-	Params:  &chaincfg.RegressionNetParams,
+	Params:  &regressionNet,
 	rpcPort: "18334",
 }
 
 // testNet3Params contains parameters specific to the test network (version 3)
 // (wire.TestNet3).  NOTE: The RPC port is intentionally different than the
 // reference implementation - see the mainNetParams comment for details.
+var testNet = chaincfg.GetTestNet()
 var testNet3Params = params{
-	Params:  &chaincfg.TestNet3Params,
+	Params:  &testNet,
 	rpcPort: "18334",
 }
 
 // simNetParams contains parameters specific to the simulation test network
 // (wire.SimNet).
+var simNet = chaincfg.GetSimNet()
 var simNetParams = params{
-	Params:  &chaincfg.SimNetParams,
+	Params:  &simNet,
 	rpcPort: "18556",
 }
 

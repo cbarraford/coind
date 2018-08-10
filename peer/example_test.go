@@ -19,10 +19,11 @@ import (
 // active.
 func mockRemotePeer() error {
 	// Configure peer to act as a simnet node that offers no services.
+	simNet := chaincfg.GetSimNet()
 	peerCfg := &peer.Config{
 		UserAgentName:    "peer",  // User agent name to advertise.
 		UserAgentVersion: "1.0.0", // User agent version to advertise.
-		ChainParams:      &chaincfg.SimNetParams,
+		ChainParams:      &simNet,
 	}
 
 	// Accept connections on the simnet port.
@@ -64,10 +65,11 @@ func Example_newOutboundPeer() {
 	// messages.  The verack listener is used here to signal the code below
 	// when the handshake has been finished by signalling a channel.
 	verack := make(chan struct{})
+	simNet := chaincfg.GetSimNet()
 	peerCfg := &peer.Config{
 		UserAgentName:    "peer",  // User agent name to advertise.
 		UserAgentVersion: "1.0.0", // User agent version to advertise.
-		ChainParams:      &chaincfg.SimNetParams,
+		ChainParams:      &simNet,
 		Services:         0,
 		Listeners: peer.MessageListeners{
 			OnVersion: func(p *peer.Peer, msg *wire.MsgVersion) {

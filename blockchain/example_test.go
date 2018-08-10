@@ -30,7 +30,7 @@ func ExampleBlockChain_ProcessBlock() {
 	// around.
 	dbPath := filepath.Join(os.TempDir(), "exampleprocessblock")
 	_ = os.RemoveAll(dbPath)
-	db, err := database.Create("ffldb", dbPath, chaincfg.MainNetParams.Net)
+	db, err := database.Create("ffldb", dbPath, chaincfg.GetMainNet().Net)
 	if err != nil {
 		fmt.Printf("Failed to create database: %v\n", err)
 		return
@@ -45,9 +45,10 @@ func ExampleBlockChain_ProcessBlock() {
 	// ordinarily keep a reference to the median time source and add time
 	// values obtained from other peers on the network so the local time is
 	// adjusted to be in agreement with other peers.
+	mainNet := chaincfg.GetMainNet()
 	chain, err := blockchain.New(&blockchain.Config{
 		DB:          db,
-		ChainParams: &chaincfg.MainNetParams,
+		ChainParams: &mainNet,
 		TimeSource:  blockchain.NewMedianTime(),
 	})
 	if err != nil {
@@ -58,7 +59,7 @@ func ExampleBlockChain_ProcessBlock() {
 	// Process a block.  For this example, we are going to intentionally
 	// cause an error by trying to process the genesis block which already
 	// exists.
-	genesisBlock := btcutil.NewBlock(chaincfg.MainNetParams.GenesisBlock)
+	genesisBlock := btcutil.NewBlock(chaincfg.GetMainNet().GenesisBlock)
 	isMainChain, isOrphan, err := chain.ProcessBlock(genesisBlock,
 		blockchain.BFNone)
 	if err != nil {

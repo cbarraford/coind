@@ -27,7 +27,11 @@ var (
 	btcdHomeDir     = btcutil.AppDataDir("btcd", false)
 	defaultDataDir  = filepath.Join(btcdHomeDir, "data")
 	knownDbTypes    = database.SupportedDrivers()
-	activeNetParams = &chaincfg.MainNetParams
+	mainNet         = chaincfg.GetMainNet()
+	testNet         = chaincfg.GetTestNet()
+	regressionNet   = chaincfg.GetRegressionNet()
+	simNet          = chaincfg.GetSimNet()
+	activeNetParams = &mainNet
 )
 
 // config defines the configuration options for findcheckpoint.
@@ -111,15 +115,15 @@ func loadConfig() (*config, []string, error) {
 	// while we're at it
 	if cfg.TestNet3 {
 		numNets++
-		activeNetParams = &chaincfg.TestNet3Params
+		activeNetParams = &testNet
 	}
 	if cfg.RegressionTest {
 		numNets++
-		activeNetParams = &chaincfg.RegressionNetParams
+		activeNetParams = &regressionNet
 	}
 	if cfg.SimNet {
 		numNets++
-		activeNetParams = &chaincfg.SimNetParams
+		activeNetParams = &simNet
 	}
 	if numNets > 1 {
 		str := "%s: The testnet, regtest, and simnet params can't be " +

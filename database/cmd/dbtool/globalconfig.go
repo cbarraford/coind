@@ -20,7 +20,11 @@ import (
 var (
 	btcdHomeDir     = btcutil.AppDataDir("btcd", false)
 	knownDbTypes    = database.SupportedDrivers()
-	activeNetParams = &chaincfg.MainNetParams
+	mainNet         = chaincfg.GetMainNet()
+	testNet         = chaincfg.GetTestNet()
+	regressionNet   = chaincfg.GetRegressionNet()
+	simNet          = chaincfg.GetSimNet()
+	activeNetParams = &mainNet
 
 	// Default global config.
 	cfg = &config{
@@ -87,15 +91,15 @@ func setupGlobalConfig() error {
 	numNets := 0
 	if cfg.TestNet3 {
 		numNets++
-		activeNetParams = &chaincfg.TestNet3Params
+		activeNetParams = &testNet
 	}
 	if cfg.RegressionTest {
 		numNets++
-		activeNetParams = &chaincfg.RegressionNetParams
+		activeNetParams = &regressionNet
 	}
 	if cfg.SimNet {
 		numNets++
-		activeNetParams = &chaincfg.SimNetParams
+		activeNetParams = &simNet
 	}
 	if numNets > 1 {
 		return errors.New("The testnet, regtest, and simnet params " +

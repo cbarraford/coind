@@ -16,6 +16,8 @@ import (
 	"github.com/coinsuite/coind/wire"
 )
 
+var mainNet = chaincfg.GetMainNet()
+
 // This example demonstrates creating a script which pays to a bitcoin address.
 // It also prints the created script hex and uses the DisasmString function to
 // display the disassembled script.
@@ -25,7 +27,7 @@ func ExamplePayToAddrScript() {
 	// the address type.  It is also required for the upcoming call to
 	// PayToAddrScript.
 	addressStr := "12gpXQVcCL2qhTNQgyLVdCFG2Qs2px98nV"
-	address, err := btcutil.DecodeAddress(addressStr, &chaincfg.MainNetParams)
+	address, err := btcutil.DecodeAddress(addressStr, &mainNet)
 	if err != nil {
 		fmt.Println(err)
 		return
@@ -64,7 +66,7 @@ func ExampleExtractPkScriptAddrs() {
 
 	// Extract and print details from the script.
 	scriptClass, addresses, reqSigs, err := txscript.ExtractPkScriptAddrs(
-		script, &chaincfg.MainNetParams)
+		script, &mainNet)
 	if err != nil {
 		fmt.Println(err)
 		return
@@ -92,7 +94,7 @@ func ExampleSignTxOutput() {
 	privKey, pubKey := btcec.PrivKeyFromBytes(btcec.S256(), privKeyBytes)
 	pubKeyHash := btcutil.Hash160(pubKey.SerializeCompressed())
 	addr, err := btcutil.NewAddressPubKeyHash(pubKeyHash,
-		&chaincfg.MainNetParams)
+		&mainNet)
 	if err != nil {
 		fmt.Println(err)
 		return
@@ -151,7 +153,7 @@ func ExampleSignTxOutput() {
 	// Notice that the script database parameter is nil here since it isn't
 	// used.  It must be specified when pay-to-script-hash transactions are
 	// being signed.
-	sigScript, err := txscript.SignTxOutput(&chaincfg.MainNetParams,
+	sigScript, err := txscript.SignTxOutput(&mainNet,
 		redeemTx, 0, originTx.TxOut[0].PkScript, txscript.SigHashAll,
 		txscript.KeyClosure(lookupKey), nil, nil)
 	if err != nil {

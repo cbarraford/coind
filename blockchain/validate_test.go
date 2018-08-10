@@ -67,8 +67,9 @@ func TestSequenceLocksActive(t *testing.T) {
 // ensure it fails.
 func TestCheckConnectBlockTemplate(t *testing.T) {
 	// Create a new database and chain instance to run tests against.
+	mainNet := chaincfg.GetMainNet()
 	chain, teardownFunc, err := chainSetup("checkconnectblocktemplate",
-		&chaincfg.MainNetParams)
+		&mainNet)
 	if err != nil {
 		t.Errorf("Failed to setup chain instance: %v", err)
 		return
@@ -151,7 +152,7 @@ func TestCheckConnectBlockTemplate(t *testing.T) {
 // TestCheckBlockSanity tests the CheckBlockSanity function to ensure it works
 // as expected.
 func TestCheckBlockSanity(t *testing.T) {
-	powLimit := chaincfg.MainNetParams.PowLimit
+	powLimit := chaincfg.GetMainNet().PowLimit
 	block := btcutil.NewBlock(&Block100000)
 	timeSource := NewMedianTime()
 	err := CheckBlockSanity(block, powLimit, timeSource)
