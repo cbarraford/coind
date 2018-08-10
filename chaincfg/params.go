@@ -6,6 +6,7 @@ package chaincfg
 
 import (
 	"errors"
+	"fmt"
 	"math/big"
 	"strings"
 	"time"
@@ -26,7 +27,7 @@ func SetSymbol(sym string) {
 	if _, ok := ParamSets[sym]; ok {
 		symbol = sym
 	} else {
-		panic("Coin symbol is not supported")
+		panic(fmt.Sprintf("Coin symbol is not supported: %s", sym))
 	}
 
 	// clear our registered nets before re-registering
