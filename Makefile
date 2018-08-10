@@ -23,10 +23,5 @@ build:
 test:
 	go test ${TARGET}
 
-vet:
-	go vet ${TARGET}
-
-fmt:
-	go fmt ${TARGET}
-
 lint: vet fmt
+	gometalinter.v2 -j 4 --disable-all --enable=gofmt --enable=golint --enable=vet --enable=gosimple --enable=unconvert --deadline=10m

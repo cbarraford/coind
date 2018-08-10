@@ -37,7 +37,7 @@ var (
 	simNetPowLimit = new(big.Int).Sub(new(big.Int).Lsh(bigOne, 255), bigOne)
 )
 
-// MainNetParams defines the network parameters for the main Bitcoin network.
+// BTCMainNetParams defines the network parameters for the main Bitcoin network.
 var BTCMainNetParams = Params{
 	Symbol:      "btc",
 	Name:        "mainnet",
@@ -138,7 +138,7 @@ var BTCMainNetParams = Params{
 	HDCoinType: 0,
 }
 
-// RegressionNetParams defines the network parameters for the regression test
+// BTCRegressionNetParams defines the network parameters for the regression test
 // Bitcoin network.  Not to be confused with the test Bitcoin network (version
 // 3), this network is sometimes simply called "testnet".
 var BTCRegressionNetParams = Params{
@@ -213,7 +213,7 @@ var BTCRegressionNetParams = Params{
 	HDCoinType: 1,
 }
 
-// TestNet3Params defines the network parameters for the test Bitcoin network
+// BTCTestNet3Params defines the network parameters for the test Bitcoin network
 // (version 3).  Not to be confused with the regression test network, this
 // network is sometimes simply called "testnet".
 var BTCTestNet3Params = Params{
@@ -307,7 +307,7 @@ var BTCTestNet3Params = Params{
 	HDCoinType: 1,
 }
 
-// SimNetParams defines the network parameters for the simulation test Bitcoin
+// BTCSimNetParams defines the network parameters for the simulation test Bitcoin
 // network.  This network is similar to the normal test network except it is
 // intended for private use within a group of individuals doing simulation
 // testing.  The functionality is intended to differ in that the only nodes
@@ -388,7 +388,9 @@ var BTCSimNetParams = Params{
 	HDCoinType: 115, // ASCII for s
 }
 
-var BTCSet = ParamsSet{
+// btcSet is a param set including, main, test, regression, and sim networks
+// for Bitcoin.
+var btcSet = paramsSet{
 	MainNetParams:       BTCMainNetParams,
 	TestNet3Params:      BTCTestNet3Params,
 	RegressionNetParams: BTCRegressionNetParams,

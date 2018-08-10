@@ -15,10 +15,10 @@ import (
 	"github.com/coinsuite/coind/wire"
 )
 
-// this variable tells chaincfg which ParamsSet to register on init. The
+// this variable tells chaincfg which paramsSet to register on init. The
 // default should be btc.
-var ParamSets = map[string]ParamsSet{
-	"btc": BTCSet,
+var paramSets = map[string]paramsSet{
+	"btc": btcSet,
 }
 
 var loadedParams = false
@@ -27,13 +27,13 @@ var testNet3Params *Params
 var regressionNetParams *Params
 var simNetParams *Params
 
-// Initialize our package with the coin symbol and register the various networks
+// Init (italize) our package with the coin symbol and register the various networks
 func Init(symbol string) {
-	if _, ok := ParamSets[symbol]; !ok {
+	if _, ok := paramSets[symbol]; !ok {
 		panic(fmt.Sprintf("Coin symbol is not supported: %s", symbol))
 	}
 
-	set := ParamSets[symbol]
+	set := paramSets[symbol]
 
 	mustRegister(&set.MainNetParams)
 	mainNetParams = &set.MainNetParams
@@ -51,7 +51,7 @@ func Init(symbol string) {
 	loadedParams = true
 }
 
-// Retrieve the MainNet Params for our coin. You must Init() before you run
+// GetMainNet retrieve the MainNet Params for our coin. You must Init() before you run
 // this function.
 func GetMainNet() *Params {
 	if !loadedParams {
@@ -60,7 +60,7 @@ func GetMainNet() *Params {
 	return mainNetParams
 }
 
-// Retrieve the Test Net Params for our coin. You must Init() before you run
+// GetTestNet retrieve the Test Net Params for our coin. You must Init() before you run
 // this function.
 func GetTestNet() *Params {
 	if !loadedParams {
@@ -69,7 +69,7 @@ func GetTestNet() *Params {
 	return testNet3Params
 }
 
-// Retrieve the Regression Net Params for our coin. You must Init() before you
+// GetRegressionNet retrieve the Regression Net Params for our coin. You must Init() before you
 // run this function.
 func GetRegressionNet() *Params {
 	if !loadedParams {
@@ -78,7 +78,7 @@ func GetRegressionNet() *Params {
 	return regressionNetParams
 }
 
-// Retrieve the Regression Net Params for our coin. You must Init() before you
+// GetSimNet retrieve the Regression Net Params for our coin. You must Init() before you
 // run this function.
 func GetSimNet() *Params {
 	if !loadedParams {
@@ -271,7 +271,7 @@ type Params struct {
 	HDCoinType uint32
 }
 
-type ParamsSet struct {
+type paramsSet struct {
 	MainNetParams       Params
 	TestNet3Params      Params
 	RegressionNetParams Params
