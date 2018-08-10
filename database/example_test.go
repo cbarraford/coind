@@ -17,6 +17,10 @@ import (
 	"github.com/coinsuite/coind/wire"
 )
 
+func init() {
+	chaincfg.Init("btc")
+}
+
 // This example demonstrates creating a new database.
 func ExampleCreate() {
 	// This example assumes the ffldb driver is imported.

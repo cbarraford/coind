@@ -45,10 +45,9 @@ func ExampleBlockChain_ProcessBlock() {
 	// ordinarily keep a reference to the median time source and add time
 	// values obtained from other peers on the network so the local time is
 	// adjusted to be in agreement with other peers.
-	mainNet := chaincfg.GetMainNet()
 	chain, err := blockchain.New(&blockchain.Config{
 		DB:          db,
-		ChainParams: &mainNet,
+		ChainParams: chaincfg.GetMainNet(),
 		TimeSource:  blockchain.NewMedianTime(),
 	})
 	if err != nil {

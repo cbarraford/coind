@@ -17,60 +17,74 @@ import (
 
 // this variable tells chaincfg which ParamsSet to register on init. The
 // default should be btc.
-var symbol = "btc"
 var ParamSets = map[string]ParamsSet{
 	"btc": BTCSet,
 }
 
-// Set coin symbol and register nets
-func SetSymbol(sym string) {
-	if _, ok := ParamSets[sym]; ok {
-		symbol = sym
-	} else {
-		panic(fmt.Sprintf("Coin symbol is not supported: %s", sym))
+var loadedParams = false
+var mainNetParams *Params
+var testNet3Params *Params
+var regressionNetParams *Params
+var simNetParams *Params
+
+// Initialize our package with the coin symbol and register the various networks
+func Init(symbol string) {
+	if _, ok := ParamSets[symbol]; !ok {
+		panic(fmt.Sprintf("Coin symbol is not supported: %s", symbol))
 	}
 
-	// clear our registered nets before re-registering
-	for k := range registeredNets {
-		delete(registeredNets, k)
+	set := ParamSets[symbol]
+
+	mustRegister(&set.MainNetParams)
+	mainNetParams = &set.MainNetParams
+
+	mustRegister(&set.TestNet3Params)
+	testNet3Params = &set.TestNet3Params
+
+	mustRegister(&set.RegressionNetParams)
+	regressionNetParams = &set.RegressionNetParams
+
+	mustRegister(&set.SimNetParams)
+	simNetParams = &set.SimNetParams
+
+	// mark that we've loaded our net params
+	loadedParams = true
+}
+
+// Retrieve the MainNet Params for our coin. You must Init() before you run
+// this function.
+func GetMainNet() *Params {
+	if !loadedParams {
+		panic("Cannot get network params before it has been initiated (Init())")
 	}
-
-	main := GetMainNet()
-	mustRegister(&main)
-
-	test := GetTestNet()
-	mustRegister(&test)
-
-	regression := GetRegressionNet()
-	mustRegister(&regression)
-
-	sim := GetSimNet()
-	mustRegister(&sim)
+	return mainNetParams
 }
 
-// Retrieve the ParamsSet for our coin
-func GetParamsSet() ParamsSet {
-	return ParamSets[symbol]
+// Retrieve the Test Net Params for our coin. You must Init() before you run
+// this function.
+func GetTestNet() *Params {
+	if !loadedParams {
+		panic("Cannot get network params before it has been initiated (Init())")
+	}
+	return testNet3Params
 }
 
-// Retrieve the MainNet Params for our coin
-func GetMainNet() Params {
-	return GetParamsSet().MainNetParams
+// Retrieve the Regression Net Params for our coin. You must Init() before you
+// run this function.
+func GetRegressionNet() *Params {
+	if !loadedParams {
+		panic("Cannot get network params before it has been initiated (Init())")
+	}
+	return regressionNetParams
 }
 
-// Retrieve the Test Net Params for our coin
-func GetTestNet() Params {
-	return GetParamsSet().TestNet3Params
-}
-
-// Retrieve the Regression Net Params for our coin
-func GetRegressionNet() Params {
-	return GetParamsSet().RegressionNetParams
-}
-
-// Retrieve the Regression Net Params for our coin
-func GetSimNet() Params {
-	return GetParamsSet().SimNetParams
+// Retrieve the Regression Net Params for our coin. You must Init() before you
+// run this function.
+func GetSimNet() *Params {
+	if !loadedParams {
+		panic("Cannot get network params before it has been initiated (Init())")
+	}
+	return simNetParams
 }
 
 // Checkpoint identifies a known good point in the block chain.  Using

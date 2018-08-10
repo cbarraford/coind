@@ -25,6 +25,10 @@ import (
 	"github.com/coinsuite/coind/wire"
 )
 
+func init() {
+	chaincfg.Init("btc")
+}
+
 var (
 	// blockDataNet is the expected network in the test block data.
 	blockDataNet = wire.MainNet

@@ -528,7 +528,7 @@ func loadConfig() (*config, []string, error) {
 	}
 
 	// Set the symbol the chaincfg should use
-	chaincfg.SetSymbol(cfg.Symbol)
+	chaincfg.Init(cfg.Symbol)
 	activeNetParams = getMainNetParams()
 
 	// Multiple networks can't be selected simultaneously.

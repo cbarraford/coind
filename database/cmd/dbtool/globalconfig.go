@@ -86,9 +86,8 @@ func netName(chainParams *chaincfg.Params) string {
 // initial parse.
 func setupGlobalConfig() error {
 
-	chaincfg.SetSymbol(cfg.Symbol)
-	mainNet := chaincfg.GetMainNet()
-	activeNetParams = &mainNet
+	chaincfg.Init(cfg.Symbol)
+	activeNetParams = chaincfg.GetMainNet()
 
 	// Multiple networks can't be selected simultaneously.
 	// Count number of network flags passed; assign active network params
@@ -96,18 +95,15 @@ func setupGlobalConfig() error {
 	numNets := 0
 	if cfg.TestNet3 {
 		numNets++
-		testNet := chaincfg.GetTestNet()
-		activeNetParams = &testNet
+		activeNetParams = chaincfg.GetTestNet()
 	}
 	if cfg.RegressionTest {
 		numNets++
-		regressionNet := chaincfg.GetRegressionNet()
-		activeNetParams = &regressionNet
+		activeNetParams = chaincfg.GetRegressionNet()
 	}
 	if cfg.SimNet {
 		numNets++
-		simNet := chaincfg.GetSimNet()
-		activeNetParams = &simNet
+		activeNetParams = chaincfg.GetSimNet()
 	}
 	if numNets > 1 {
 		return errors.New("The testnet, regtest, and simnet params " +

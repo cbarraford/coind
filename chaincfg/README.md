@@ -37,7 +37,7 @@ var chainParams = &chaincfg.MainNetParams
 func main() {
 	flag.Parse()
 
-    chaincfg.SetSymbol(*symbol)
+    chaincfg.Init(*symbol)
 
 	// Modify active network parameters if operating on testnet.
 	if *testnet {

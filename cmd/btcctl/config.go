@@ -250,7 +250,7 @@ func loadConfig() (*config, []string, error) {
 		return nil, nil, err
 	}
 
-	chaincfg.SetSymbol(cfg.Symbol)
+	chaincfg.Init(cfg.Symbol)
 
 	// Multiple networks can't be selected simultaneously.
 	numNets := 0

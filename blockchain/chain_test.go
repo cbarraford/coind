@@ -15,6 +15,10 @@ import (
 	"github.com/coinsuite/coind/wire"
 )
 
+func init() {
+	chaincfg.Init("btc")
+}
+
 // TestHaveBlock tests the HaveBlock API to ensure proper functionality.
 func TestHaveBlock(t *testing.T) {
 	// Load up blocks such that there is a side chain.
@@ -36,9 +40,8 @@ func TestHaveBlock(t *testing.T) {
 	}
 
 	// Create a new database and chain instance to run tests against.
-	mainNet := chaincfg.GetMainNet()
 	chain, teardownFunc, err := chainSetup("haveblock",
-		&mainNet)
+		chaincfg.GetMainNet())
 	if err != nil {
 		t.Errorf("Failed to setup chain instance: %v", err)
 		return
@@ -126,7 +129,7 @@ func TestCalcSequenceLock(t *testing.T) {
 	blockVersion := int32(0x20000000 | (uint32(1) << csvBit))
 
 	// Generate enough synthetic blocks to activate CSV.
-	chain := newFakeChain(&netParams)
+	chain := newFakeChain(netParams)
 	node := chain.bestChain.Tip()
 	blockTime := node.Header().Timestamp
 	numBlocksToActivate := (netParams.MinerConfirmationWindow * 3)
@@ -470,8 +473,7 @@ func TestLocateInventory(t *testing.T) {
 	// 	genesis -> 1 -> 2 -> ... -> 15 -> 16  -> 17  -> 18
 	// 	                              \-> 16a -> 17a
 	tip := tstTip
-	mainNet := chaincfg.GetMainNet()
-	chain := newFakeChain(&mainNet)
+	chain := newFakeChain(chaincfg.GetMainNet())
 	branch0Nodes := chainedNodes(chain.bestChain.Genesis(), 18)
 	branch1Nodes := chainedNodes(branch0Nodes[14], 2)
 	for _, node := range branch0Nodes {
@@ -811,8 +813,7 @@ func TestHeightToHashRange(t *testing.T) {
 	// 	genesis -> 1 -> 2 -> ... -> 15 -> 16  -> 17  -> 18
 	// 	                              \-> 16a -> 17a -> 18a (unvalidated)
 	tip := tstTip
-	mainNet := chaincfg.GetMainNet()
-	chain := newFakeChain(&mainNet)
+	chain := newFakeChain(chaincfg.GetMainNet())
 	branch0Nodes := chainedNodes(chain.bestChain.Genesis(), 18)
 	branch1Nodes := chainedNodes(branch0Nodes[14], 3)
 	for _, node := range branch0Nodes {
@@ -904,8 +905,7 @@ func TestIntervalBlockHashes(t *testing.T) {
 	// 	genesis -> 1 -> 2 -> ... -> 15 -> 16  -> 17  -> 18
 	// 	                              \-> 16a -> 17a -> 18a (unvalidated)
 	tip := tstTip
-	mainNet := chaincfg.GetMainNet()
-	chain := newFakeChain(&mainNet)
+	chain := newFakeChain(chaincfg.GetMainNet())
 	branch0Nodes := chainedNodes(chain.bestChain.Genesis(), 18)
 	branch1Nodes := chainedNodes(branch0Nodes[14], 3)
 	for _, node := range branch0Nodes {

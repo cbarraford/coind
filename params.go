@@ -27,9 +27,8 @@ type params struct {
 // it does not handle on to btcd.  This approach allows the wallet process
 // to emulate the full reference implementation RPC API.
 func getMainNetParams() *params {
-	var mainNet = chaincfg.GetMainNet()
 	return &params{
-		Params:  &mainNet,
+		Params:  chaincfg.GetMainNet(),
 		rpcPort: "8334",
 	}
 }
@@ -39,9 +38,8 @@ func getMainNetParams() *params {
 // than the reference implementation - see the mainNetParams comment for
 // details.
 func getRegressionNetParams() *params {
-	var regressionNet = chaincfg.GetRegressionNet()
 	return &params{
-		Params:  &regressionNet,
+		Params:  chaincfg.GetRegressionNet(),
 		rpcPort: "18334",
 	}
 }
@@ -50,9 +48,8 @@ func getRegressionNetParams() *params {
 // (wire.TestNet3).  NOTE: The RPC port is intentionally different than the
 // reference implementation - see the mainNetParams comment for details.
 func getTestNet3Params() *params {
-	var testNet = chaincfg.GetTestNet()
 	return &params{
-		Params:  &testNet,
+		Params:  chaincfg.GetTestNet(),
 		rpcPort: "18334",
 	}
 }
@@ -60,9 +57,8 @@ func getTestNet3Params() *params {
 // simNetParams contains parameters specific to the simulation test network
 // (wire.SimNet).
 func getSimNetParams() *params {
-	var simNet = chaincfg.GetSimNet()
 	return &params{
-		Params:  &simNet,
+		Params:  chaincfg.GetSimNet(),
 		rpcPort: "18556",
 	}
 }

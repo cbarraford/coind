@@ -22,6 +22,10 @@ var mockNetParams = Params{
 	HDPublicKeyID:    [4]byte{0x05, 0x06, 0x07, 0x08},
 }
 
+func init() {
+	//Init("btc")
+}
+
 func TestRegister(t *testing.T) {
 	type registerTest struct {
 		name   string
@@ -42,8 +46,6 @@ func TestRegister(t *testing.T) {
 		err  error
 	}
 
-	SetSymbol("btc")
-
 	mainNet := GetMainNet()
 	regressionNet := GetRegressionNet()
 	testNet := GetTestNet()
@@ -62,22 +64,22 @@ func TestRegister(t *testing.T) {
 			register: []registerTest{
 				{
 					name:   "duplicate mainnet",
-					params: &mainNet,
+					params: GetMainNet(),
 					err:    ErrDuplicateNet,
 				},
 				{
 					name:   "duplicate regtest",
-					params: &regressionNet,
+					params: GetRegressionNet(),
 					err:    ErrDuplicateNet,
 				},
 				{
 					name:   "duplicate testnet3",
-					params: &testNet,
+					params: GetTestNet(),
 					err:    ErrDuplicateNet,
 				},
 				{
 					name:   "duplicate simnet",
-					params: &simNet,
+					params: GetSimNet(),
 					err:    ErrDuplicateNet,
 				},
 			},
@@ -318,22 +320,22 @@ func TestRegister(t *testing.T) {
 			register: []registerTest{
 				{
 					name:   "duplicate mainnet",
-					params: &mainNet,
+					params: GetMainNet(),
 					err:    ErrDuplicateNet,
 				},
 				{
 					name:   "duplicate regtest",
-					params: &regressionNet,
+					params: GetRegressionNet(),
 					err:    ErrDuplicateNet,
 				},
 				{
 					name:   "duplicate testnet3",
-					params: &testNet,
+					params: GetTestNet(),
 					err:    ErrDuplicateNet,
 				},
 				{
 					name:   "duplicate simnet",
-					params: &simNet,
+					params: GetSimNet(),
 					err:    ErrDuplicateNet,
 				},
 				{

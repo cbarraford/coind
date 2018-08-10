@@ -19,8 +19,9 @@ import (
 	"github.com/coinsuite/coind/wire"
 )
 
-var mainNet = chaincfg.GetMainNet()
-var regressionNet = chaincfg.GetRegressionNet()
+func init() {
+	chaincfg.Init("btc")
+}
 
 // conn mocks a network connection by implementing the net.Conn interface.  It
 // is used to test peer connection without actually opening a network
@@ -236,7 +237,7 @@ func TestPeerConnection(t *testing.T) {
 		UserAgentName:     "peer",
 		UserAgentVersion:  "1.0",
 		UserAgentComments: []string{"comment"},
-		ChainParams:       &mainNet,
+		ChainParams:       chaincfg.GetMainNet(),
 		ProtocolVersion:   wire.RejectVersion, // Configure with older version
 		Services:          0,
 	}
@@ -245,7 +246,7 @@ func TestPeerConnection(t *testing.T) {
 		UserAgentName:     "peer",
 		UserAgentVersion:  "1.0",
 		UserAgentComments: []string{"comment"},
-		ChainParams:       &mainNet,
+		ChainParams:       chaincfg.GetMainNet(),
 		Services:          wire.SFNodeNetwork | wire.SFNodeWitness,
 	}
 
@@ -448,7 +449,7 @@ func TestPeerListeners(t *testing.T) {
 		UserAgentName:     "peer",
 		UserAgentVersion:  "1.0",
 		UserAgentComments: []string{"comment"},
-		ChainParams:       &mainNet,
+		ChainParams:       chaincfg.GetMainNet(),
 		Services:          wire.SFNodeBloom,
 	}
 	inConn, outConn := pipe(
@@ -618,7 +619,7 @@ func TestOutboundPeer(t *testing.T) {
 		UserAgentName:     "peer",
 		UserAgentVersion:  "1.0",
 		UserAgentComments: []string{"comment"},
-		ChainParams:       &mainNet,
+		ChainParams:       chaincfg.GetMainNet(),
 		Services:          0,
 	}
 
@@ -707,7 +708,7 @@ func TestOutboundPeer(t *testing.T) {
 	p1.Disconnect()
 
 	// Test regression
-	peerCfg.ChainParams = &regressionNet
+	peerCfg.ChainParams = chaincfg.GetRegressionNet()
 	peerCfg.Services = wire.SFNodeBloom
 	r2, w2 := io.Pipe()
 	c2 := &conn{raddr: "10.0.0.1:8333", Writer: w2, Reader: r2}
@@ -758,7 +759,7 @@ func TestUnsupportedVersionPeer(t *testing.T) {
 		UserAgentName:     "peer",
 		UserAgentVersion:  "1.0",
 		UserAgentComments: []string{"comment"},
-		ChainParams:       &mainNet,
+		ChainParams:       chaincfg.GetMainNet(),
 		Services:          0,
 	}
 

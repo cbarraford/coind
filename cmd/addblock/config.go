@@ -108,10 +108,9 @@ func loadConfig() (*config, []string, error) {
 		return nil, nil, err
 	}
 
-	chaincfg.SetSymbol(cfg.Symbol)
-	mainNet := chaincfg.GetMainNet()
+	chaincfg.Init(cfg.Symbol)
 
-	activeNetParams = &mainNet
+	activeNetParams = chaincfg.GetMainNet()
 	// Multiple networks can't be selected simultaneously.
 	funcName := "loadConfig"
 	numNets := 0
@@ -119,18 +118,15 @@ func loadConfig() (*config, []string, error) {
 	// while we're at it
 	if cfg.TestNet3 {
 		numNets++
-		testNet := chaincfg.GetTestNet()
-		activeNetParams = &testNet
+		activeNetParams = chaincfg.GetTestNet()
 	}
 	if cfg.RegressionTest {
 		numNets++
-		regressionNet := chaincfg.GetRegressionNet()
-		activeNetParams = &regressionNet
+		activeNetParams = chaincfg.GetRegressionNet()
 	}
 	if cfg.SimNet {
 		numNets++
-		simNet := chaincfg.GetSimNet()
-		activeNetParams = &simNet
+		activeNetParams = chaincfg.GetSimNet()
 	}
 	if numNets > 1 {
 		str := "%s: The testnet, regtest, and simnet params can't be " +
