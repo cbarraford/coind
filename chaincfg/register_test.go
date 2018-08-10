@@ -42,6 +42,8 @@ func TestRegister(t *testing.T) {
 		err  error
 	}
 
+	SetSymbol("btc")
+
 	mainNet := GetMainNet()
 	regressionNet := GetRegressionNet()
 	testNet := GetTestNet()

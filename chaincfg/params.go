@@ -14,12 +14,26 @@ import (
 	"github.com/coinsuite/coind/wire"
 )
 
-var Sets = map[string]ParamsSet{
+// this variable tells chaincfg which ParamsSet to register on init. The
+// default should be btc.
+var symbol = "btc"
+var ParamSets = map[string]ParamsSet{
 	"btc": BTCSet,
 }
 
-func init() {
-	// Register all default networks when the package is initialized.
+// Set coin symbol
+func SetSymbol(sym string) {
+	if _, ok := ParamSets[sym]; ok {
+		symbol = sym
+	} else {
+		panic("Coin symbol is not supported")
+	}
+
+	// clear our registered nets before re-registering
+	for k := range registeredNets {
+		delete(registeredNets, k)
+	}
+
 	main := GetMainNet()
 	mustRegister(&main)
 
@@ -35,8 +49,7 @@ func init() {
 
 // Retrieve the ParamsSet for our coin
 func GetParamsSet() ParamsSet {
-	coin := "btc" // TODO Make this configurable
-	return Sets[coin]
+	return ParamSets[symbol]
 }
 
 // Retrieve the MainNet Params for our coin

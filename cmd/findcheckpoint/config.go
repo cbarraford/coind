@@ -22,6 +22,7 @@ const (
 	maxCandidates        = 20
 	defaultNumCandidates = 5
 	defaultDbType        = "ffldb"
+	defaultSymbol        = "btc"
 )
 
 var (
@@ -41,6 +42,7 @@ var (
 type config struct {
 	DataDir        string `short:"b" long:"datadir" description:"Location of the btcd data directory"`
 	DbType         string `long:"dbtype" description:"Database backend to use for the Block Chain"`
+	Symbol         string `long:"symbol" description:"Coin symbol to start"`
 	TestNet3       bool   `long:"testnet" description:"Use the test network"`
 	RegressionTest bool   `long:"regtest" description:"Use the regression test network"`
 	SimNet         bool   `long:"simnet" description:"Use the simulation test network"`
@@ -83,6 +85,7 @@ func loadConfig() (*config, []string, error) {
 	cfg := config{
 		DataDir:       defaultDataDir,
 		DbType:        defaultDbType,
+		Symbol:        defaultSymbol,
 		NumCandidates: defaultNumCandidates,
 	}
 
@@ -95,6 +98,8 @@ func loadConfig() (*config, []string, error) {
 		}
 		return nil, nil, err
 	}
+
+	chaincfg.SetSymbol(cfg.Symbol)
 
 	// Multiple networks can't be selected simultaneously.
 	funcName := "loadConfig"

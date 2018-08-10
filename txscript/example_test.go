@@ -16,6 +16,10 @@ import (
 	"github.com/coinsuite/coind/wire"
 )
 
+func init() {
+	chaincfg.SetSymbol("btc")
+}
+
 var mainNet = chaincfg.GetMainNet()
 
 // This example demonstrates creating a script which pays to a bitcoin address.

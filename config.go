@@ -66,6 +66,7 @@ const (
 
 var (
 	defaultHomeDir     = btcutil.AppDataDir("btcd", false)
+	defaultSymbol      = "btc"
 	defaultConfigFile  = filepath.Join(defaultHomeDir, defaultConfigFilename)
 	defaultDataDir     = filepath.Join(defaultHomeDir, defaultDataDirname)
 	knownDbTypes       = database.SupportedDrivers()
@@ -127,6 +128,7 @@ type config struct {
 	OnionProxyPass       string        `long:"onionpass" default-mask:"-" description:"Password for onion proxy server"`
 	NoOnion              bool          `long:"noonion" description:"Disable connecting to tor hidden services"`
 	TorIsolation         bool          `long:"torisolation" description:"Enable Tor stream isolation by randomizing user credentials for each connection."`
+	Symbol               string        `long:"symbol" description:"Coin symbol to start"`
 	TestNet3             bool          `long:"testnet" description:"Use the test network"`
 	RegressionTest       bool          `long:"regtest" description:"Use the regression test network"`
 	SimNet               bool          `long:"simnet" description:"Use the simulation test network"`
@@ -409,6 +411,7 @@ func loadConfig() (*config, []string, error) {
 		RPCMaxWebsockets:     defaultMaxRPCWebsockets,
 		RPCMaxConcurrentReqs: defaultMaxRPCConcurrentReqs,
 		DataDir:              defaultDataDir,
+		Symbol:               defaultSymbol,
 		LogDir:               defaultLogDir,
 		DbType:               defaultDbType,
 		RPCKey:               defaultRPCKeyFile,
@@ -503,6 +506,9 @@ func loadConfig() (*config, []string, error) {
 		}
 		return nil, nil, err
 	}
+
+	// Set the symbol the chaincfg should use
+	chaincfg.SetSymbol(cfg.Symbol)
 
 	// Create the home directory if it doesn't already exist.
 	funcName := "loadConfig"
