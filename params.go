@@ -11,7 +11,7 @@ import (
 
 // activeNetParams is a pointer to the parameters specific to the
 // currently active bitcoin network.
-var activeNetParams = &mainNetParams
+var activeNetParams *params
 
 // params is used to group parameters for various networks such as the main
 // network and test networks.
@@ -26,37 +26,45 @@ type params struct {
 // separate wallet process listens on the well-known port and forwards requests
 // it does not handle on to btcd.  This approach allows the wallet process
 // to emulate the full reference implementation RPC API.
-var mainNet = chaincfg.GetMainNet()
-var mainNetParams = params{
-	Params:  &mainNet,
-	rpcPort: "8334",
+func getMainNetParams() *params {
+	var mainNet = chaincfg.GetMainNet()
+	return &params{
+		Params:  &mainNet,
+		rpcPort: "8334",
+	}
 }
 
 // regressionNetParams contains parameters specific to the regression test
 // network (wire.TestNet).  NOTE: The RPC port is intentionally different
 // than the reference implementation - see the mainNetParams comment for
 // details.
-var regressionNet = chaincfg.GetRegressionNet()
-var regressionNetParams = params{
-	Params:  &regressionNet,
-	rpcPort: "18334",
+func getRegressionNetParams() *params {
+	var regressionNet = chaincfg.GetRegressionNet()
+	return &params{
+		Params:  &regressionNet,
+		rpcPort: "18334",
+	}
 }
 
 // testNet3Params contains parameters specific to the test network (version 3)
 // (wire.TestNet3).  NOTE: The RPC port is intentionally different than the
 // reference implementation - see the mainNetParams comment for details.
-var testNet = chaincfg.GetTestNet()
-var testNet3Params = params{
-	Params:  &testNet,
-	rpcPort: "18334",
+func getTestNet3Params() *params {
+	var testNet = chaincfg.GetTestNet()
+	return &params{
+		Params:  &testNet,
+		rpcPort: "18334",
+	}
 }
 
 // simNetParams contains parameters specific to the simulation test network
 // (wire.SimNet).
-var simNet = chaincfg.GetSimNet()
-var simNetParams = params{
-	Params:  &simNet,
-	rpcPort: "18556",
+func getSimNetParams() *params {
+	var simNet = chaincfg.GetSimNet()
+	return &params{
+		Params:  &simNet,
+		rpcPort: "18556",
+	}
 }
 
 // netName returns the name used when referring to a bitcoin network.  At the
