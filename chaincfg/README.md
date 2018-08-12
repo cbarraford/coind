@@ -1,7 +1,7 @@
 chaincfg
 ========
 
-[![Build Status](http://img.shields.io/travis/btcsuite/btcd.svg)](https://travis-ci.org/btcsuite/btcd)
+[![Build Status](http://img.shields.io/travis/coinsuite/coind.svg)](https://travis-ci.org/coinsuite/coind)
 [![ISC License](http://img.shields.io/badge/license-ISC-blue.svg)](http://copyfree.org)
 [![GoDoc](https://img.shields.io/badge/godoc-reference-blue.svg)](http://godoc.org/github.com/coinsuite/coind/chaincfg)
 
@@ -24,17 +24,20 @@ import (
 	"fmt"
 	"log"
 
-	"github.com/btcsuite/btcutil"
+	"github.com/coinsuite/btcutil"
 	"github.com/coinsuite/coind/chaincfg"
 )
 
 var testnet = flag.Bool("testnet", false, "operate on the testnet Bitcoin network")
+var symbol = flag.String("symbol", "btc", "Coin symbol to start")
 
 // By default (without -testnet), use mainnet.
 var chainParams = &chaincfg.MainNetParams
 
 func main() {
 	flag.Parse()
+
+    chaincfg.Init(*symbol)
 
 	// Modify active network parameters if operating on testnet.
 	if *testnet {

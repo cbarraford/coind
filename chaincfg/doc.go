@@ -37,6 +37,8 @@
 //  func main() {
 //          flag.Parse()
 //
+//          chaincfg.Init(*symbol)
+//
 //          // Modify active network parameters if operating on testnet.
 //          if *testnet {
 //                  chainParams = &chaincfg.TestNet3Params

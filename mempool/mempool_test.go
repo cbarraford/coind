@@ -394,7 +394,7 @@ func testPoolMembership(tc *testContext, tx *btcutil.Tx, inOrphanPool, inTxPool 
 func TestSimpleOrphanChain(t *testing.T) {
 	t.Parallel()
 
-	harness, spendableOuts, err := newPoolHarness(&chaincfg.MainNetParams)
+	harness, spendableOuts, err := newPoolHarness(chaincfg.GetMainNet())
 	if err != nil {
 		t.Fatalf("unable to create test pool: %v", err)
 	}
@@ -457,7 +457,7 @@ func TestSimpleOrphanChain(t *testing.T) {
 func TestOrphanReject(t *testing.T) {
 	t.Parallel()
 
-	harness, outputs, err := newPoolHarness(&chaincfg.MainNetParams)
+	harness, outputs, err := newPoolHarness(chaincfg.GetMainNet())
 	if err != nil {
 		t.Fatalf("unable to create test pool: %v", err)
 	}
@@ -512,7 +512,7 @@ func TestOrphanReject(t *testing.T) {
 func TestOrphanEviction(t *testing.T) {
 	t.Parallel()
 
-	harness, outputs, err := newPoolHarness(&chaincfg.MainNetParams)
+	harness, outputs, err := newPoolHarness(chaincfg.GetMainNet())
 	if err != nil {
 		t.Fatalf("unable to create test pool: %v", err)
 	}
@@ -577,7 +577,7 @@ func TestBasicOrphanRemoval(t *testing.T) {
 	t.Parallel()
 
 	const maxOrphans = 4
-	harness, spendableOuts, err := newPoolHarness(&chaincfg.MainNetParams)
+	harness, spendableOuts, err := newPoolHarness(chaincfg.GetMainNet())
 	if err != nil {
 		t.Fatalf("unable to create test pool: %v", err)
 	}
@@ -652,7 +652,7 @@ func TestOrphanChainRemoval(t *testing.T) {
 	t.Parallel()
 
 	const maxOrphans = 10
-	harness, spendableOuts, err := newPoolHarness(&chaincfg.MainNetParams)
+	harness, spendableOuts, err := newPoolHarness(chaincfg.GetMainNet())
 	if err != nil {
 		t.Fatalf("unable to create test pool: %v", err)
 	}
@@ -715,7 +715,7 @@ func TestMultiInputOrphanDoubleSpend(t *testing.T) {
 	t.Parallel()
 
 	const maxOrphans = 4
-	harness, outputs, err := newPoolHarness(&chaincfg.MainNetParams)
+	harness, outputs, err := newPoolHarness(chaincfg.GetMainNet())
 	if err != nil {
 		t.Fatalf("unable to create test pool: %v", err)
 	}
@@ -803,7 +803,7 @@ func TestMultiInputOrphanDoubleSpend(t *testing.T) {
 func TestCheckSpend(t *testing.T) {
 	t.Parallel()
 
-	harness, outputs, err := newPoolHarness(&chaincfg.MainNetParams)
+	harness, outputs, err := newPoolHarness(chaincfg.GetMainNet())
 	if err != nil {
 		t.Fatalf("unable to create test pool: %v", err)
 	}

@@ -19,7 +19,7 @@ func TestNotifications(t *testing.T) {
 
 	// Create a new database and chain instance to run tests against.
 	chain, teardownFunc, err := chainSetup("notifications",
-		&chaincfg.MainNetParams)
+		chaincfg.GetMainNet())
 	if err != nil {
 		t.Fatalf("Failed to setup chain instance: %v", err)
 	}

@@ -25,6 +25,10 @@ import (
 	"github.com/coinsuite/coind/wire"
 )
 
+func init() {
+	chaincfg.Init("btc")
+}
+
 var (
 	// blockDataNet is the expected network in the test block data.
 	blockDataNet = wire.MainNet
@@ -56,7 +60,7 @@ func loadBlocks(t *testing.T, dataFile string, network wire.BitcoinNet) ([]*btcu
 
 	// Set the first block as the genesis block.
 	blocks := make([]*btcutil.Block, 0, 256)
-	genesis := btcutil.NewBlock(chaincfg.MainNetParams.GenesisBlock)
+	genesis := btcutil.NewBlock(chaincfg.GetMainNet().GenesisBlock)
 	blocks = append(blocks, genesis)
 
 	// Load the remaining blocks.

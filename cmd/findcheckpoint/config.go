@@ -22,13 +22,15 @@ const (
 	maxCandidates        = 20
 	defaultNumCandidates = 5
 	defaultDbType        = "ffldb"
+	defaultSymbol        = "btc"
 )
 
+var activeNetParams *chaincfg.Params
+
 var (
-	btcdHomeDir     = btcutil.AppDataDir("btcd", false)
-	defaultDataDir  = filepath.Join(btcdHomeDir, "data")
-	knownDbTypes    = database.SupportedDrivers()
-	activeNetParams = &chaincfg.MainNetParams
+	btcdHomeDir    = btcutil.AppDataDir("btcd", false)
+	defaultDataDir = filepath.Join(btcdHomeDir, "data")
+	knownDbTypes   = database.SupportedDrivers()
 )
 
 // config defines the configuration options for findcheckpoint.
@@ -37,6 +39,7 @@ var (
 type config struct {
 	DataDir        string `short:"b" long:"datadir" description:"Location of the btcd data directory"`
 	DbType         string `long:"dbtype" description:"Database backend to use for the Block Chain"`
+	Symbol         string `long:"symbol" description:"Coin symbol to start"`
 	TestNet3       bool   `long:"testnet" description:"Use the test network"`
 	RegressionTest bool   `long:"regtest" description:"Use the regression test network"`
 	SimNet         bool   `long:"simnet" description:"Use the simulation test network"`
@@ -79,6 +82,7 @@ func loadConfig() (*config, []string, error) {
 	cfg := config{
 		DataDir:       defaultDataDir,
 		DbType:        defaultDbType,
+		Symbol:        defaultSymbol,
 		NumCandidates: defaultNumCandidates,
 	}
 
@@ -92,6 +96,9 @@ func loadConfig() (*config, []string, error) {
 		return nil, nil, err
 	}
 
+	chaincfg.Init(cfg.Symbol)
+
+	activeNetParams = chaincfg.GetMainNet()
 	// Multiple networks can't be selected simultaneously.
 	funcName := "loadConfig"
 	numNets := 0
@@ -99,15 +106,15 @@ func loadConfig() (*config, []string, error) {
 	// while we're at it
 	if cfg.TestNet3 {
 		numNets++
-		activeNetParams = &chaincfg.TestNet3Params
+		activeNetParams = chaincfg.GetTestNet()
 	}
 	if cfg.RegressionTest {
 		numNets++
-		activeNetParams = &chaincfg.RegressionNetParams
+		activeNetParams = chaincfg.GetRegressionNet()
 	}
 	if cfg.SimNet {
 		numNets++
-		activeNetParams = &chaincfg.SimNetParams
+		activeNetParams = chaincfg.GetSimNet()
 	}
 	if numNets > 1 {
 		str := "%s: The testnet, regtest, and simnet params can't be " +

@@ -17,14 +17,17 @@ import (
 	"github.com/coinsuite/coind/wire"
 )
 
+var activeNetParams *chaincfg.Params
+
 var (
-	btcdHomeDir     = btcutil.AppDataDir("btcd", false)
-	knownDbTypes    = database.SupportedDrivers()
-	activeNetParams = &chaincfg.MainNetParams
+	btcdHomeDir   = btcutil.AppDataDir("btcd", false)
+	knownDbTypes  = database.SupportedDrivers()
+	defaultSymbol = "btc"
 
 	// Default global config.
 	cfg = &config{
 		DataDir: filepath.Join(btcdHomeDir, "data"),
+		Symbol:  defaultSymbol,
 		DbType:  "ffldb",
 	}
 )
@@ -33,6 +36,7 @@ var (
 type config struct {
 	DataDir        string `short:"b" long:"datadir" description:"Location of the btcd data directory"`
 	DbType         string `long:"dbtype" description:"Database backend to use for the Block Chain"`
+	Symbol         string `long:"symbol" description:"Coin symbol to start"`
 	TestNet3       bool   `long:"testnet" description:"Use the test network"`
 	RegressionTest bool   `long:"regtest" description:"Use the regression test network"`
 	SimNet         bool   `long:"simnet" description:"Use the simulation test network"`
@@ -81,21 +85,25 @@ func netName(chainParams *chaincfg.Params) string {
 // which are invalid as well as performs any addition setup necessary after the
 // initial parse.
 func setupGlobalConfig() error {
+
+	chaincfg.Init(cfg.Symbol)
+	activeNetParams = chaincfg.GetMainNet()
+
 	// Multiple networks can't be selected simultaneously.
 	// Count number of network flags passed; assign active network params
 	// while we're at it
 	numNets := 0
 	if cfg.TestNet3 {
 		numNets++
-		activeNetParams = &chaincfg.TestNet3Params
+		activeNetParams = chaincfg.GetTestNet()
 	}
 	if cfg.RegressionTest {
 		numNets++
-		activeNetParams = &chaincfg.RegressionNetParams
+		activeNetParams = chaincfg.GetRegressionNet()
 	}
 	if cfg.SimNet {
 		numNets++
-		activeNetParams = &chaincfg.SimNetParams
+		activeNetParams = chaincfg.GetSimNet()
 	}
 	if numNets > 1 {
 		return errors.New("The testnet, regtest, and simnet params " +

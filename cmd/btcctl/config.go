@@ -15,6 +15,7 @@ import (
 
 	"github.com/coinsuite/btcutil"
 	"github.com/coinsuite/coind/btcjson"
+	"github.com/coinsuite/coind/chaincfg"
 	flags "github.com/jessevdk/go-flags"
 )
 
@@ -33,6 +34,7 @@ var (
 	defaultRPCServer      = "localhost"
 	defaultRPCCertFile    = filepath.Join(btcdHomeDir, "rpc.cert")
 	defaultWalletCertFile = filepath.Join(btcwalletHomeDir, "rpc.cert")
+	defaultSymbol         = "btc"
 )
 
 // listCommands categorizes and lists all of the usable commands along with
@@ -103,6 +105,7 @@ type config struct {
 	Proxy         string `long:"proxy" description:"Connect via SOCKS5 proxy (eg. 127.0.0.1:9050)"`
 	ProxyUser     string `long:"proxyuser" description:"Username for proxy server"`
 	ProxyPass     string `long:"proxypass" default-mask:"-" description:"Password for proxy server"`
+	Symbol        string `long:"symbol" description:"Coin symbol to start"`
 	TestNet3      bool   `long:"testnet" description:"Connect to testnet"`
 	SimNet        bool   `long:"simnet" description:"Connect to the simulation test network"`
 	TLSSkipVerify bool   `long:"skipverify" description:"Do not verify tls certificates (not recommended!)"`
@@ -171,6 +174,7 @@ func loadConfig() (*config, []string, error) {
 	// Default config.
 	cfg := config{
 		ConfigFile: defaultConfigFile,
+		Symbol:     defaultSymbol,
 		RPCServer:  defaultRPCServer,
 		RPCCert:    defaultRPCCertFile,
 	}
@@ -245,6 +249,8 @@ func loadConfig() (*config, []string, error) {
 		}
 		return nil, nil, err
 	}
+
+	chaincfg.Init(cfg.Symbol)
 
 	// Multiple networks can't be selected simultaneously.
 	numNets := 0

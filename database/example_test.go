@@ -17,6 +17,10 @@ import (
 	"github.com/coinsuite/coind/wire"
 )
 
+func init() {
+	chaincfg.Init("btc")
+}
+
 // This example demonstrates creating a new database.
 func ExampleCreate() {
 	// This example assumes the ffldb driver is imported.
@@ -135,7 +139,7 @@ func Example_blockStorageAndRetrieval() {
 	// read-write transaction and store a genesis block in the database as
 	// and example.
 	err = db.Update(func(tx database.Tx) error {
-		genesisBlock := chaincfg.MainNetParams.GenesisBlock
+		genesisBlock := chaincfg.GetMainNet().GenesisBlock
 		return tx.StoreBlock(btcutil.NewBlock(genesisBlock))
 	})
 	if err != nil {
@@ -147,7 +151,7 @@ func Example_blockStorageAndRetrieval() {
 	// transaction and fetch the block stored above.
 	var loadedBlockBytes []byte
 	err = db.Update(func(tx database.Tx) error {
-		genesisHash := chaincfg.MainNetParams.GenesisHash
+		genesisHash := chaincfg.GetMainNet().GenesisHash
 		blockBytes, err := tx.FetchBlock(genesisHash)
 		if err != nil {
 			return err

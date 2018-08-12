@@ -17,6 +17,10 @@ import (
 	"github.com/coinsuite/coind/wire"
 )
 
+func init() {
+	chaincfg.Init("btc")
+}
+
 // TestCalcMinRequiredTxRelayFee tests the calcMinRequiredTxRelayFee API.
 func TestCalcMinRequiredTxRelayFee(t *testing.T) {
 	tests := []struct {
@@ -293,7 +297,7 @@ func TestCheckTransactionStandard(t *testing.T) {
 	}
 	addrHash := [20]byte{0x01}
 	addr, err := btcutil.NewAddressPubKeyHash(addrHash[:],
-		&chaincfg.TestNet3Params)
+		chaincfg.GetTestNet())
 	if err != nil {
 		t.Fatalf("NewAddressPubKeyHash: unexpected error: %v", err)
 	}
