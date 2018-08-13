@@ -24,5 +24,6 @@ func ReadConfig(configFile string) (ParamsSet, error) {
 	if _, err := toml.DecodeFile(configFile, &cfg); err != nil {
 		return cfg.ChainParams, err
 	}
+
 	return cfg.ChainParams, nil
 }

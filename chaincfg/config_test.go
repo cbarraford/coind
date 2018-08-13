@@ -24,4 +24,17 @@ func TestConfigMatchesDefault(t *testing.T) {
 	if diff := deep.Equal(defaultParams, configParams); diff != nil {
 		t.Error(diff)
 	}
+
+	configParams, err = ReadConfig("test/test1.conf")
+	if err != nil {
+		t.Errorf("Unable to parse config: %s", err)
+	}
+	// test that our config specification overrides the default
+	if configParams.MainNetParams.Name != "test1" {
+		t.Errorf("Name mismatch: got %s, expected 'test1'", configParams.MainNetParams.Name)
+	}
+	// test that if don't specify an attribute, we still get the default
+	if configParams.MainNetParams.Net != 3652501241 {
+		t.Errorf("Net mismatch: got %d, expected 3652501241", configParams.MainNetParams.Net)
+	}
 }
