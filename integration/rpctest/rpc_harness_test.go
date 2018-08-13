@@ -21,7 +21,7 @@ import (
 )
 
 func init() {
-	chaincfg.Init("btc")
+	chaincfg.Init(chaincfg.DefaultParamSet)
 }
 
 func testSendOutputs(r *Harness, t *testing.T) {

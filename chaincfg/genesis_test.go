@@ -12,7 +12,7 @@ import (
 )
 
 func init() {
-	Init("btc")
+	Init(DefaultParamSet)
 }
 
 // TestGenesisBlock tests the genesis block of the main network for validity by

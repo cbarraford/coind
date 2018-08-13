@@ -39,7 +39,6 @@ var (
 
 // BTCMainNetParams defines the network parameters for the main Bitcoin network.
 var BTCMainNetParams = Params{
-	Symbol:      "btc",
 	Name:        "mainnet",
 	Net:         wire.MainNet,
 	DefaultPort: "8333",
@@ -142,7 +141,6 @@ var BTCMainNetParams = Params{
 // Bitcoin network.  Not to be confused with the test Bitcoin network (version
 // 3), this network is sometimes simply called "testnet".
 var BTCRegressionNetParams = Params{
-	Symbol:      "btc",
 	Name:        "regtest",
 	Net:         wire.TestNet,
 	DefaultPort: "18444",
@@ -217,7 +215,6 @@ var BTCRegressionNetParams = Params{
 // (version 3).  Not to be confused with the regression test network, this
 // network is sometimes simply called "testnet".
 var BTCTestNet3Params = Params{
-	Symbol:      "btc",
 	Name:        "testnet3",
 	Net:         wire.TestNet3,
 	DefaultPort: "18333",
@@ -315,7 +312,6 @@ var BTCTestNet3Params = Params{
 // following normal discovery rules.  This is important as otherwise it would
 // just turn into another public testnet.
 var BTCSimNetParams = Params{
-	Symbol:      "btc",
 	Name:        "simnet",
 	Net:         wire.SimNet,
 	DefaultPort: "18555",
@@ -388,9 +384,9 @@ var BTCSimNetParams = Params{
 	HDCoinType: 115, // ASCII for s
 }
 
-// btcSet is a param set including, main, test, regression, and sim networks
+// DefaultParamSet is a param set including, main, test, regression, and sim networks
 // for Bitcoin.
-var btcSet = paramsSet{
+var DefaultParamSet = paramsSet{
 	MainNetParams:       BTCMainNetParams,
 	TestNet3Params:      BTCTestNet3Params,
 	RegressionNetParams: BTCRegressionNetParams,

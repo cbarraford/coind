@@ -29,7 +29,6 @@ import (
 )
 
 var testnet = flag.Bool("testnet", false, "operate on the testnet Bitcoin network")
-var symbol = flag.String("symbol", "btc", "Coin symbol to start")
 
 // By default (without -testnet), use mainnet.
 var chainParams = &chaincfg.MainNetParams
@@ -37,7 +36,7 @@ var chainParams = &chaincfg.MainNetParams
 func main() {
 	flag.Parse()
 
-    chaincfg.Init(*symbol)
+    chaincfg.Init(chaincfg.DefaultParamSet)
 
 	// Modify active network parameters if operating on testnet.
 	if *testnet {

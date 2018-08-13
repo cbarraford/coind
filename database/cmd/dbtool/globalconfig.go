@@ -20,14 +20,12 @@ import (
 var activeNetParams *chaincfg.Params
 
 var (
-	btcdHomeDir   = btcutil.AppDataDir("btcd", false)
-	knownDbTypes  = database.SupportedDrivers()
-	defaultSymbol = "btc"
+	btcdHomeDir  = btcutil.AppDataDir("btcd", false)
+	knownDbTypes = database.SupportedDrivers()
 
 	// Default global config.
 	cfg = &config{
 		DataDir: filepath.Join(btcdHomeDir, "data"),
-		Symbol:  defaultSymbol,
 		DbType:  "ffldb",
 	}
 )
@@ -36,7 +34,6 @@ var (
 type config struct {
 	DataDir        string `short:"b" long:"datadir" description:"Location of the btcd data directory"`
 	DbType         string `long:"dbtype" description:"Database backend to use for the Block Chain"`
-	Symbol         string `long:"symbol" description:"Coin symbol to start"`
 	TestNet3       bool   `long:"testnet" description:"Use the test network"`
 	RegressionTest bool   `long:"regtest" description:"Use the regression test network"`
 	SimNet         bool   `long:"simnet" description:"Use the simulation test network"`
@@ -86,7 +83,7 @@ func netName(chainParams *chaincfg.Params) string {
 // initial parse.
 func setupGlobalConfig() error {
 
-	chaincfg.Init(cfg.Symbol)
+	chaincfg.Init(chaincfg.DefaultParamSet)
 	activeNetParams = chaincfg.GetMainNet()
 
 	// Multiple networks can't be selected simultaneously.

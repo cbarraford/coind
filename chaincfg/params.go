@@ -6,7 +6,6 @@ package chaincfg
 
 import (
 	"errors"
-	"fmt"
 	"math/big"
 	"strings"
 	"time"
@@ -15,12 +14,6 @@ import (
 	"github.com/coinsuite/coind/wire"
 )
 
-// this variable tells chaincfg which paramsSet to register on init. The
-// default should be btc.
-var paramSets = map[string]paramsSet{
-	"btc": btcSet,
-}
-
 var loadedParams = false
 var mainNetParams *Params
 var testNet3Params *Params
@@ -28,13 +21,7 @@ var regressionNetParams *Params
 var simNetParams *Params
 
 // Init (italize) our package with the coin symbol and register the various networks
-func Init(symbol string) {
-	if _, ok := paramSets[symbol]; !ok {
-		panic(fmt.Sprintf("Coin symbol is not supported: %s", symbol))
-	}
-
-	set := paramSets[symbol]
-
+func Init(set paramsSet) {
 	mustRegister(&set.MainNetParams)
 	mainNetParams = &set.MainNetParams
 
@@ -154,9 +141,6 @@ const (
 // used by Bitcoin applications to differentiate networks as well as addresses
 // and keys for one network from those intended for use on another network.
 type Params struct {
-	// Ticker symbol for the coin
-	Symbol string
-
 	// Name defines a human-readable identifier for the network.
 	Name string
 
@@ -282,7 +266,7 @@ var (
 	// ErrDuplicateNet describes an error where the parameters for a Bitcoin
 	// network could not be set due to the network already being a standard
 	// network or previously-registered into this package.
-	ErrDuplicateNet = errors.New("duplicate Bitcoin network")
+	ErrDuplicateNet = errors.New("duplicate network")
 
 	// ErrUnknownHDKeyID describes an error where the provided id which
 	// is intended to identify the network for a hierarchical deterministic

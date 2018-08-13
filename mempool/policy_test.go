@@ -18,7 +18,7 @@ import (
 )
 
 func init() {
-	chaincfg.Init("btc")
+	chaincfg.Init(chaincfg.DefaultParamSet)
 }
 
 // TestCalcMinRequiredTxRelayFee tests the calcMinRequiredTxRelayFee API.
