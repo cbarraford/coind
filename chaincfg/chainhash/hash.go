@@ -11,18 +11,30 @@ import (
 )
 
 // HashSize of array used to store hashes.  See Hash.
-const HashSize = 32
+var HashSize int
 
 // MaxHashStringSize is the maximum length of a Hash hash string.
-const MaxHashStringSize = HashSize * 2
+var MaxHashStringSize int
 
 // ErrHashStrSize describes an error that indicates the caller specified a hash
 // string that has too many characters.
 var ErrHashStrSize = fmt.Errorf("max hash string length is %v bytes", MaxHashStringSize)
 
+var DefaultConfiguration = Configuration{
+	HashSize:          HashSize,
+	MaxHashStringSize: MaxHashStringSize,
+}
+
+func Init(config Configuration) {
+	HashSize = config.HashSize
+	MaxHashStringSize = config.MaxHashStringSize
+}
+
 // Hash is used in several of the bitcoin messages and common structures.  It
 // typically represents the double sha256 of data.
-type Hash [HashSize]byte
+// TODO: This is currently hard coded at 32, which we should be dynamic and
+// define this variable at runtime (based on the config given to Init())
+type Hash [32]byte
 
 // String returns the Hash as the hexadecimal string of the byte-reversed
 // hash.
