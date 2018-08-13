@@ -6,17 +6,23 @@ import (
 	"github.com/BurntSushi/toml"
 )
 
+type config struct {
+	ChainParams ParamsSet
+}
+
 // Reads info from config file
 func ReadConfig(configFile string) (ParamsSet, error) {
-	set := DefaultParamSet
+	cfg := config{
+		ChainParams: DefaultParamSet,
+	}
 
 	_, err := os.Stat(configFile)
 	if err != nil {
-		return set, err
+		return cfg.ChainParams, err
 	}
 
-	if _, err := toml.DecodeFile(configFile, &set); err != nil {
-		return set, err
+	if _, err := toml.DecodeFile(configFile, &cfg); err != nil {
+		return cfg.ChainParams, err
 	}
-	return set, nil
+	return cfg.ChainParams, nil
 }
