@@ -33,6 +33,7 @@ var (
 // config defines the global configuration options.
 type config struct {
 	DataDir        string `short:"b" long:"datadir" description:"Location of the btcd data directory"`
+	CoinConfig     string `long:"coin-config" description:"Coin configuration file"`
 	DbType         string `long:"dbtype" description:"Database backend to use for the Block Chain"`
 	TestNet3       bool   `long:"testnet" description:"Use the test network"`
 	RegressionTest bool   `long:"regtest" description:"Use the regression test network"`
@@ -83,7 +84,18 @@ func netName(chainParams *chaincfg.Params) string {
 // initial parse.
 func setupGlobalConfig() error {
 
-	chaincfg.Init(chaincfg.DefaultParamSet)
+	if cfg.CoinConfig != "" {
+		paramSet, err := chaincfg.ReadConfig(cfg.CoinConfig)
+		if err != nil {
+			fmt.Fprintln(os.Stderr, err)
+			return err
+		}
+		chaincfg.Init(paramSet)
+	} else {
+		// Use default (bitcoin) coin settings
+		chaincfg.Init(chaincfg.DefaultParamSet)
+	}
+
 	activeNetParams = chaincfg.GetMainNet()
 
 	// Multiple networks can't be selected simultaneously.
