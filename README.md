@@ -11,6 +11,9 @@ coind is a fork of [btcd](https://github.com/btcsuite/btcd), where the intent
 is to have a more modular and reusable codebase for alternative bitcoin-based
 coins such as Bitcoin Cash, Litecoin, and Dogecoin.
 
+## Status
+This is in development and not ready for prime time. Use at own risk.
+
 # Description
 
 btcd is an alternative full node bitcoin implementation written in Go (golang).
