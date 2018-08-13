@@ -20,7 +20,7 @@ import (
 )
 
 func init() {
-	chaincfg.Init("btc")
+	chaincfg.Init(chaincfg.DefaultParamSet)
 }
 
 // conn mocks a network connection by implementing the net.Conn interface.  It

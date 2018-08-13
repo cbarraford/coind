@@ -26,7 +26,7 @@ import (
 )
 
 func init() {
-	chaincfg.Init("btc")
+	chaincfg.Init(chaincfg.DefaultParamSet)
 }
 
 var (
