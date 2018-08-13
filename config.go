@@ -127,6 +127,7 @@ type config struct {
 	OnionProxyPass       string        `long:"onionpass" default-mask:"-" description:"Password for onion proxy server"`
 	NoOnion              bool          `long:"noonion" description:"Disable connecting to tor hidden services"`
 	TorIsolation         bool          `long:"torisolation" description:"Enable Tor stream isolation by randomizing user credentials for each connection."`
+	CoinConfig           string        `long:"coin-config" description:"Coin configuration file"`
 	TestNet3             bool          `long:"testnet" description:"Use the test network"`
 	RegressionTest       bool          `long:"regtest" description:"Use the regression test network"`
 	SimNet               bool          `long:"simnet" description:"Use the simulation test network"`
@@ -524,8 +525,17 @@ func loadConfig() (*config, []string, error) {
 		return nil, nil, err
 	}
 
-	// Set the symbol the chaincfg should use
-	chaincfg.Init(chaincfg.DefaultParamSet)
+	if cfg.CoinConfig != "" {
+		paramSet, err := chaincfg.ReadConfig(cfg.CoinConfig)
+		if err != nil {
+			fmt.Fprintln(os.Stderr, err)
+			return nil, nil, err
+		}
+		chaincfg.Init(paramSet)
+	} else {
+		// Use default (bitcoin) coin settings
+		chaincfg.Init(chaincfg.DefaultParamSet)
+	}
 	activeNetParams = getMainNetParams()
 
 	// Multiple networks can't be selected simultaneously.

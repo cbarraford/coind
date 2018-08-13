@@ -38,6 +38,7 @@ var (
 type config struct {
 	DataDir        string `short:"b" long:"datadir" description:"Location of the btcd data directory"`
 	DbType         string `long:"dbtype" description:"Database backend to use for the Block Chain"`
+	CoinConfig     string `long:"coin-config" description:"Coin configuration file"`
 	TestNet3       bool   `long:"testnet" description:"Use the test network"`
 	RegressionTest bool   `long:"regtest" description:"Use the regression test network"`
 	SimNet         bool   `long:"simnet" description:"Use the simulation test network"`
@@ -93,7 +94,17 @@ func loadConfig() (*config, []string, error) {
 		return nil, nil, err
 	}
 
-	chaincfg.Init(chaincfg.DefaultParamSet)
+	if cfg.CoinConfig != "" {
+		paramSet, err := chaincfg.ReadConfig(cfg.CoinConfig)
+		if err != nil {
+			fmt.Fprintln(os.Stderr, err)
+			return nil, nil, err
+		}
+		chaincfg.Init(paramSet)
+	} else {
+		// Use default (bitcoin) coin settings
+		chaincfg.Init(chaincfg.DefaultParamSet)
+	}
 
 	activeNetParams = chaincfg.GetMainNet()
 	// Multiple networks can't be selected simultaneously.
