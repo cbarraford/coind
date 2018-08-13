@@ -10,7 +10,7 @@ type config struct {
 	ChainParams ParamsSet
 }
 
-// Reads info from config file
+// ReadConfig - reads the param set from a given configuration file location
 func ReadConfig(configFile string) (ParamsSet, error) {
 	cfg := config{
 		ChainParams: DefaultParamSet,
