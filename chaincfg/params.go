@@ -21,7 +21,7 @@ var regressionNetParams *Params
 var simNetParams *Params
 
 // Init (italize) our package with the coin symbol and register the various networks
-func Init(set paramsSet) {
+func Init(set ParamsSet) {
 	mustRegister(&set.MainNetParams)
 	mainNetParams = &set.MainNetParams
 
@@ -255,7 +255,9 @@ type Params struct {
 	HDCoinType uint32
 }
 
-type paramsSet struct {
+// ParamsSet is a set of multiple parameters for mulitple networks for a coin.
+// This includes main, net, regression, and sim networks.
+type ParamsSet struct {
 	MainNetParams       Params
 	TestNet3Params      Params
 	RegressionNetParams Params

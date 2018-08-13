@@ -386,7 +386,7 @@ var BTCSimNetParams = Params{
 
 // DefaultParamSet is a param set including, main, test, regression, and sim networks
 // for Bitcoin.
-var DefaultParamSet = paramsSet{
+var DefaultParamSet = ParamsSet{
 	MainNetParams:       BTCMainNetParams,
 	TestNet3Params:      BTCTestNet3Params,
 	RegressionNetParams: BTCRegressionNetParams,
