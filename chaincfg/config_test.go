@@ -5,8 +5,10 @@
 package chaincfg
 
 import (
+	"os"
 	"testing"
 
+	"github.com/BurntSushi/toml"
 	"github.com/go-test/deep"
 )
 
@@ -14,6 +16,10 @@ import (
 // param set
 func TestConfigMatchesDefault(t *testing.T) {
 	t.Parallel()
+
+	f, _ := os.Create("sample-ltc.conf")
+	encoder := toml.NewEncoder(f)
+	_ = encoder.Encode(config{LTCParamSet})
 
 	defaultParams := DefaultParamSet
 	configParams, err := ReadConfig("sample-btc.conf")
