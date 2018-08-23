@@ -29,6 +29,7 @@ import (
 	"github.com/coinsuite/coind/database"
 	_ "github.com/coinsuite/coind/database/ffldb"
 	"github.com/coinsuite/coind/mempool"
+	"github.com/coinsuite/coind/wire"
 	flags "github.com/jessevdk/go-flags"
 )
 
@@ -532,9 +533,17 @@ func loadConfig() (*config, []string, error) {
 			return nil, nil, err
 		}
 		chaincfg.Init(paramSet)
+
+		wireConfig, err := wire.ReadConfig(cfg.CoinConfig)
+		if err != nil {
+			fmt.Fprintln(os.Stderr, err)
+			return nil, nil, err
+		}
+		wire.Init(wireConfig)
 	} else {
 		// Use default (bitcoin) coin settings
 		chaincfg.Init(chaincfg.DefaultParamSet)
+		wire.Init(wire.DefaultConfiguration)
 	}
 	activeNetParams = getMainNetParams()
 
