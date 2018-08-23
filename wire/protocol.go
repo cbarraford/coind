@@ -12,9 +12,6 @@ import (
 
 // XXX pedro: we will probably need to bump this.
 const (
-	// ProtocolVersion is the latest protocol version this package supports.
-	ProtocolVersion uint32 = 70013
-
 	// MultipleAddressVersion is the protocol version which added multiple
 	// addresses per message (pver >= MultipleAddressVersion).
 	MultipleAddressVersion uint32 = 209
@@ -146,9 +143,6 @@ type BitcoinNet uint32
 // this package does not provide that functionality since it's generally a
 // better idea to simply disconnect clients that are misbehaving over TCP.
 const (
-	// MainNet represents the main bitcoin network.
-	MainNet BitcoinNet = 0xd9b4bef9
-
 	// TestNet represents the regression test network.
 	TestNet BitcoinNet = 0xdab5bffa
 
@@ -158,6 +152,27 @@ const (
 	// SimNet represents the simulation test network.
 	SimNet BitcoinNet = 0x12141c16
 )
+
+var (
+	// ProtocolVersion is the latest protocol version this package supports.
+	ProtocolVersion uint32 = 70013
+
+	// MainNet represents the main bitcoin network.
+	MainNet BitcoinNet = 0xd9b4bef9
+)
+
+// DefaultConfiguration - is the default (bitcoin) configuration of wire
+// package
+var DefaultConfiguration = Configuration{
+	ProtocolVersion: 70013,
+	MainNet:         0xd9b4bef9,
+}
+
+// Init - initialize wire package with proper protocols
+func Init(config Configuration) {
+	ProtocolVersion = config.ProtocolVersion
+	MainNet = config.MainNet
+}
 
 // bnStrings is a map of bitcoin networks back to their constant names for
 // pretty printing.

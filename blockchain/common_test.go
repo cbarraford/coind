@@ -31,7 +31,7 @@ const (
 	testDbRoot = "testdbs"
 
 	// blockDataNet is the expected network in the test block data.
-	blockDataNet = wire.MainNet
+	blockDataNet = wire.BitcoinNet(0xd9b4bef9)
 )
 
 // filesExists returns whether or not the named file or directory exists.

@@ -16,6 +16,7 @@ import (
 	"github.com/coinsuite/btcutil"
 	"github.com/coinsuite/coind/btcjson"
 	"github.com/coinsuite/coind/chaincfg"
+	"github.com/coinsuite/coind/wire"
 	flags "github.com/jessevdk/go-flags"
 )
 
@@ -104,6 +105,7 @@ type config struct {
 	Proxy         string `long:"proxy" description:"Connect via SOCKS5 proxy (eg. 127.0.0.1:9050)"`
 	ProxyUser     string `long:"proxyuser" description:"Username for proxy server"`
 	ProxyPass     string `long:"proxypass" default-mask:"-" description:"Password for proxy server"`
+	CoinConfig    string `long:"coin-config" description:"Coin configuration file"`
 	TestNet3      bool   `long:"testnet" description:"Connect to testnet"`
 	SimNet        bool   `long:"simnet" description:"Connect to the simulation test network"`
 	TLSSkipVerify bool   `long:"skipverify" description:"Do not verify tls certificates (not recommended!)"`
@@ -247,7 +249,25 @@ func loadConfig() (*config, []string, error) {
 		return nil, nil, err
 	}
 
-	chaincfg.Init(chaincfg.DefaultParamSet)
+	if cfg.CoinConfig != "" {
+		paramSet, err := chaincfg.ReadConfig(cfg.CoinConfig)
+		if err != nil {
+			fmt.Fprintln(os.Stderr, err)
+			return nil, nil, err
+		}
+		chaincfg.Init(paramSet)
+
+		wireConfig, err := wire.ReadConfig(cfg.CoinConfig)
+		if err != nil {
+			fmt.Fprintln(os.Stderr, err)
+			return nil, nil, err
+		}
+		wire.Init(wireConfig)
+	} else {
+		// Use default (bitcoin) coin settings
+		chaincfg.Init(chaincfg.DefaultParamSet)
+		wire.Init(wire.DefaultConfiguration)
+	}
 
 	// Multiple networks can't be selected simultaneously.
 	numNets := 0

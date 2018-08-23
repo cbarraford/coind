@@ -91,9 +91,17 @@ func setupGlobalConfig() error {
 			return err
 		}
 		chaincfg.Init(paramSet)
+
+		wireConfig, err := wire.ReadConfig(cfg.CoinConfig)
+		if err != nil {
+			fmt.Fprintln(os.Stderr, err)
+			return err
+		}
+		wire.Init(wireConfig)
 	} else {
 		// Use default (bitcoin) coin settings
 		chaincfg.Init(chaincfg.DefaultParamSet)
+		wire.Init(wire.DefaultConfiguration)
 	}
 
 	activeNetParams = chaincfg.GetMainNet()
