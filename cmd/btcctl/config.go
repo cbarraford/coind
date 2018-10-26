@@ -14,6 +14,7 @@ import (
 	"strings"
 
 	"github.com/coinsuite/btcutil"
+	"github.com/coinsuite/coind/blockchain"
 	"github.com/coinsuite/coind/btcjson"
 	"github.com/coinsuite/coind/chaincfg"
 	"github.com/coinsuite/coind/wire"
@@ -263,10 +264,16 @@ func loadConfig() (*config, []string, error) {
 			return nil, nil, err
 		}
 		wire.Init(wireConfig)
+
+		if err := blockchain.Init(cfg.CoinConfig); err != nil {
+			fmt.Fprintln(os.Stderr, err)
+			return nil, nil, err
+		}
 	} else {
 		// Use default (bitcoin) coin settings
 		chaincfg.Init(chaincfg.DefaultParamSet)
 		wire.Init(wire.DefaultConfiguration)
+		blockchain.Init("")
 	}
 
 	// Multiple networks can't be selected simultaneously.
