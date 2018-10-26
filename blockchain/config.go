@@ -17,6 +17,7 @@ type Configuration struct {
 	BlockIdentifierHashFunction string
 }
 
+// DefaultConfiguration - the default configuration (which is btc behavior)
 var DefaultConfiguration = Configuration{
 	BlockIdentifierHashFunction: "BlockHash",
 }
