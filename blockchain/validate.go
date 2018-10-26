@@ -323,9 +323,19 @@ func checkProofOfWork(header *wire.BlockHeader, powLimit *big.Int, flags Behavio
 	// The block hash must be less than the claimed target unless the flag
 	// to avoid proof of work checks is set.
 	if flags&BFNoPoWCheck != BFNoPoWCheck {
+		var hashNum *big.Int
 		// The block hash must be less than the claimed target.
-		hash := header.BlockHash()
-		hashNum := HashToBig(&hash)
+		if cfg.BlockIdentifierHashFunction == "PowHash" {
+			hash, err := header.PowHash()
+			if err != nil {
+				return err
+			}
+			hashNum = HashToBig(hash)
+		} else {
+			hash := header.BlockHash()
+			hashNum = HashToBig(&hash)
+		}
+
 		if hashNum.Cmp(target) > 0 {
 			str := fmt.Sprintf("block hash of %064x is higher than "+
 				"expected max of %064x", hashNum, target)

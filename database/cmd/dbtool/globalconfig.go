@@ -11,6 +11,7 @@ import (
 	"path/filepath"
 
 	"github.com/coinsuite/btcutil"
+	"github.com/coinsuite/coind/blockchain"
 	"github.com/coinsuite/coind/chaincfg"
 	"github.com/coinsuite/coind/database"
 	_ "github.com/coinsuite/coind/database/ffldb"
@@ -98,10 +99,15 @@ func setupGlobalConfig() error {
 			return err
 		}
 		wire.Init(wireConfig)
+		if err := blockchain.Init(cfg.CoinConfig); err != nil {
+			fmt.Fprintln(os.Stderr, err)
+			return err
+		}
 	} else {
 		// Use default (bitcoin) coin settings
 		chaincfg.Init(chaincfg.DefaultParamSet)
 		wire.Init(wire.DefaultConfiguration)
+		blockchain.Init("")
 	}
 
 	activeNetParams = chaincfg.GetMainNet()
