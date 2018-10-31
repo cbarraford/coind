@@ -15,11 +15,13 @@ type config struct {
 // Configuration - configuration settings for the wire package
 type Configuration struct {
 	BlockIdentifierHashFunction string
+	Timewarp                    bool
 }
 
 // DefaultConfiguration - the default configuration (which is btc behavior)
 var DefaultConfiguration = Configuration{
 	BlockIdentifierHashFunction: "BlockHash",
+	Timewarp:                    false,
 }
 
 // Init - initialize the package configuration
